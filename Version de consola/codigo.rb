@@ -13,19 +13,22 @@ require 'colorize'
 require 'tty-platform'
 require 'ipaddr'
 require 'macaddr'
-require 'curl'
+
+#cURL -H
+require 'net/http'
+require 'uri'
+require 'json'
 
 #Clases de dependencias
-platform = TTY::Platform.new
-ipaddr1 = IPAddr.new "127.0.0.1"
-curl = CURL.new
+$platform = TTY::Platform.new
+$ipaddr1 = IPAddr.new "127.0.0.1"
 
 #Variables de texto
 msgran = ["Hola gamer", "Esta va para el admin .|.","Hey bro, nice dick","Hecho en Mexico", "Alse try evil-sofia","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
 hora =  Time.now.strftime("%R")
-OSV = platform.version
-OS = platform.os
-ip = ipaddr1.to_s
+OSV = $platform.version
+OS = $platform.os
+ip = $ipaddr1.to_s
 mac = Mac.addr 
 
 LOGO = " 
@@ -58,7 +61,7 @@ LOGOCCS ="
 \t\t\t▓▓      ▓▓               ▓▓ 
 \t\t\t ██████  ██████     ███████ " 
 MENUC= "
-\n Escoje una opcione del menu
+\n Escoje una opcion del menu
 \n \t1) Extrapolacion de bins
 \t2) Informacion de un bin
 \t3) Gen CC's apartir de un bin
@@ -105,7 +108,7 @@ def seccs()
     when "1"
         puts("Hola")
     when "2"
-        puts("Hola")
+        provi()
     when"3"
         gencc()
     when "4"
@@ -143,6 +146,36 @@ def gencc()
         $o += 1
     end while $o < $cad 
     
+    no = gets.chomp
+    seccs()
+end
+def provi()
+    puts("Ingresa el bin que deseas obtener informacion")
+    bin =  gets.chomp
+    puts("Obtenteniendo informacion...")
+    uri = URI.parse("https://lookup.binlist.net/#{bin}")
+    request = Net::HTTP::Get.new(uri)
+    request["Accept-Version"] = "3"
+
+    req_options = {
+        use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+    end
+    info = JSON.parse(response.body)
+    bank = info["bank"]
+    pais = info["country"]
+    puts ("
+    Tipo de empresa: #{info["scheme"]}
+    Tipo: #{info["type"]}
+    Marca: #{info["brand"]}
+    Prepago: #{info["prepaid"]}
+    Pais: #{pais["name"]}  #{pais["alpha2"]} #{pais["currency"]}
+    Banco: #{bank["name"]}  #{bank["url"]} #{bank["city"]} #{bank["phone"]}  
+
+    ")
     no = gets.chomp
     seccs()
 end

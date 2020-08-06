@@ -8,6 +8,8 @@ gem 'colorize', '~> 0.8.1'
 gem 'tty-platform', '~> 0.3.0'
 gem 'ipaddr', '~> 1.2', '>= 1.2.2'
 gem 'macaddr', '~> 1.7', '>= 1.7.2'
-gem 'curl', '~> 0.0.9'
+gem 'uri', '~> 0.10.0'
+gem 'net/http'
+gem 'json', '~> 2.3'
 
 # gem "rails"
