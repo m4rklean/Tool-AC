@@ -1,3 +1,5 @@
+#Version 1.1.0-aplha: 1- Script version, 1- Entrono facil, 0- Correccion 
+
 ########################################
 ##                                    ##
 ## Contribuidores:                    ##
@@ -24,7 +26,7 @@ $platform = TTY::Platform.new
 $ipaddr1 = IPAddr.new "127.0.0.1"
 
 #Variables de texto
-msgran = ["Hola gamer", "Esta va para el admin .|.","Hey bro, nice dick","Hecho en Mexico", "Alse try evil-sofia","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
+msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","Hey bro, nice dick","F","11","Hecho en Mexico","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños", "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
@@ -106,7 +108,7 @@ def seccs()
 
     case(op)
     when "1"
-        puts("Hola")
+        extra()
     when "2"
         provi()
     when"3"
@@ -177,6 +179,57 @@ def provi()
 
     ")
     no = gets.chomp
+    seccs()
+end
+def extra()
+    puts("Este metodo requiere 2 CCs, las cuales comunmente son expedidas entre Octubre 2016 a Febrero 2017")
+    puts("De preferencia que sea expedida entre un rango de 5 meses como maximo")
+    puts("Ejemplo:
+    T1: 49151101 76928790
+    T2: 49151101 91768499
+        |  BIN |\n")
+    print("T1: ")
+    t1 = gets.chomp
+    print("T2: ")
+    
+    #separador
+    t2 = gets.chomp
+    sepa = " "
+    t1S = t1.split(sepa)
+    bin = t1S.first
+    t1S = t1S.last.chars
+    t2S = t2.split(sepa)
+    t2S = t2S.last
+
+    #multiplicacion
+
+    c0=bin[0].to_i*t2S[0].to_i
+    c1=bin[1].to_i*t2S[1].to_i
+    c2=bin[2].to_i*t2S[2].to_i
+    c3=bin[3].to_i*t2S[3].to_i
+    c4=bin[4].to_i*t2S[4].to_i
+    c5=bin[5].to_i*t2S[5].to_i
+    c6=bin[6].to_i*t2S[6].to_i
+    c7=bin[7].to_i*t2S[7].to_i
+
+    #Juntador
+
+    jun = c0.to_s+c1.to_s+c2.to_s+c3.to_s+c4.to_s+c5.to_s+c6.to_s+c7.to_s
+    seg = jun.chars
+    pri = t1S
+    resultado = []
+    pri.each_index do |i|
+        if pri[i] == seg[i]
+            resultado << pri[i]
+        else
+            resultado << "x"
+        end  
+    end
+    puts("Tu resultado es:
+    #{bin + resultado.join}")
+    #Ajolotes Gracias
+    puts("Metodo: Axolotl")
+    h = gets
     seccs()
 end
 #Inicio de programa
