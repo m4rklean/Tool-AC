@@ -57,7 +57,7 @@ usern()
 	cd Tool-AC
 	#ingresar link valido
 	wget https://pastebin.com/raw/Wd6GtStE;
-	mv Wd6GtStE codigo.rb;
+	mv Wd6GtStE main.rb;
 	wget https://pastebin.com/raw/bsEnkYtK;
 	mv bsEnkYtK Gemfile;
 	wget https://pastebin.com/raw/6ArXDz8L;
