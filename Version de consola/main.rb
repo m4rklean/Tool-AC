@@ -225,10 +225,15 @@ def extra()
             resultado << "x"
         end  
     end
+    if resultado[7] == "x"
+        resultado[7] = "1"
+    else
+        h = 0
+    end
     puts("Tu resultado es:
     #{bin + resultado.join}")
-    #Ajolotes Gracias
-    puts("Metodo: Axolotl")
+    #tanks ajolotes 
+    puts("Metodo by: Axolotl")
     h = gets
     seccs()
 end
