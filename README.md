@@ -27,7 +27,7 @@ Para ejecutar desde un solo comando, solo necesitaras [wget](https://www.gnu.org
 sh -c "$(wget -O- https://raw.githubusercontent.com/Kedap/Tool-AC/master/Instaladores/linux.sh)"
 ```
 ## Windows 
-El script esta creado para windows lo tendras que descargar [aqui](https://www.github.com/Kedap/Tool-AC/master/Instaladores/Windows.ps1). Algo fudamental para esto es que necesitas tener instalado [Powershell](https://docs.microsoft.com/en-us/powershell/) en tu sistema operativo windows. Una vez descargado te diriges al directorio donde lo tengas almacenado (con una terminal powershell) y ejecutas:
+El script esta creado para windows lo tendras que descargar [aqui](https://github.com/Kedap/Tool-AC/blob/master/Instaladores/Windows.ps1). Algo fudamental para esto es que necesitas tener instalado [Powershell](https://docs.microsoft.com/en-us/powershell/) en tu sistema operativo windows. Una vez descargado te diriges al directorio donde lo tengas almacenado (con una terminal powershell) y ejecutas:
 ```
 ./Windows.ps1
 ```
