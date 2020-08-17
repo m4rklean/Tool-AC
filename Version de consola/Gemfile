@@ -11,5 +11,3 @@ gem 'macaddr', '~> 1.7', '>= 1.7.2'
 gem 'uri', '~> 0.10.0'
 gem 'net/http'
 gem 'json', '~> 2.3'
-
-# gem "rails"
