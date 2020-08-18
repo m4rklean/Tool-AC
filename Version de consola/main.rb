@@ -114,9 +114,9 @@ def seccs()
     when"3"
         gencc()
     when "4"
-        puts("Hola")
+        checkc()
     when "5"
-        puts("Hola")
+        todoc() 
     when "99"
         init()
     else
@@ -149,7 +149,11 @@ def gencc()
     end while $o < $cad 
     
     no = gets.chomp
-    seccs()
+    if $seccioncc == true
+        seccs()
+    else
+        seccs()
+    end
 end
 def provi()
     puts("Ingresa el bin que deseas obtener informacion")
@@ -179,7 +183,11 @@ def provi()
 
     ")
     no = gets.chomp
-    seccs()
+    if $seccioncc == true
+        gencc()
+    else
+        seccs()
+    end
 end
 def extra()
     puts("Este metodo requiere 2 CCs, las cuales comunmente son expedidas entre Octubre 2016 a Febrero 2017")
@@ -235,7 +243,19 @@ def extra()
     #tanks ajolotes 
     puts("Metodo by: Axolotl")
     h = gets
-    seccs()
+    if $seccioncc == true
+        provi()
+    else
+        seccs()
+    end
+end
+def todoc()
+    puts("Ejecutando...")
+    $seccioncc = true
+    extra()
+end
+def checkc()
+    puts("Hola")
 end
 #Inicio de programa
 init()
