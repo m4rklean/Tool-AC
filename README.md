@@ -19,6 +19,7 @@ Esta herramienta dependen de las siguientas API's o aplicaciones
 - [json](https://rubygems.org/gems/json)
 
 ## Aplicaciones
+- [EmailGen](https://github.com/navisecdelta/EmailGen)
 - [Bundler](https://bundler.io/)
 - [Rubygems](https://rubygems.org/)
 # Ejecucion correcta del script
@@ -45,4 +46,7 @@ Y para ejecutar
 ```
 ruby main.rb
 ```
+# Contacto 
+- [Chat Telegram](https://t.me/Kedap_Develop)
+
 #TeamObsidian

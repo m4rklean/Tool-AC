@@ -16,6 +16,7 @@ require 'tty-platform'
 require 'ipaddr'
 require 'macaddr'
 
+
 #cURL -H
 require 'net/http'
 require 'uri'
@@ -114,7 +115,8 @@ def seccs()
     when"3"
         gencc()
     when "4"
-        checkc()
+        #checkc(), esta en fase de desarrollo
+        puts"Esta funcion se encuentra en desarrollo"
     when "5"
         todoc() 
     when "99"
@@ -255,7 +257,23 @@ def todoc()
     extra()
 end
 def checkc()
-    puts("Hola")
+    puts("Ingresa la cc que quieres checar")
+    print("[cc]>> ")
+    cc = gets.chomp
+    #Codigo del generador de emails https://github.com/navisecdelta/EmailGen
+    require './libs/Emailgen/EmailGen.rb' 
+    puts "Borrando lista de Emails anteriores."
+    if File.exist?("./correos.txt")
+        File.delete("./correos.txt")
+    else
+        puts "..."
+    end
+    puts "Generando emails..."
+    mailgen()
+    puts "Leyendo la lista de emails ..."
+    lista = File.read("./correos.txt")
+    lista = lista.split("\n")
+    puts "Correo a utilizar es: #{lista[0]}"
 end
 #Inicio de programa
 init()
