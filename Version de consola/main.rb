@@ -71,7 +71,27 @@ MENUC= "
 \t4) Checker
 \t5) Ejecutar todos en el siguiente orden: 1,2,3 y 4
 \t99) Menu principal"
-
+LOGOCARD = '
+______                          __ __                   
+/      \                        |  \  \                  
+|  ▓▓▓▓▓▓\ ______   ______   ____| ▓▓\▓▓_______   ______  
+| ▓▓   \▓▓|      \ /      \ /      ▓▓  \       \ /      \ 
+| ▓▓       \▓▓▓▓▓▓\  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓ ▓▓ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\
+| ▓▓   __ /      ▓▓ ▓▓   \▓▓ ▓▓  | ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓
+| ▓▓__/  \  ▓▓▓▓▓▓▓ ▓▓     | ▓▓__| ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓__| ▓▓
+\▓▓    ▓▓\▓▓    ▓▓ ▓▓      \▓▓    ▓▓ ▓▓ ▓▓  | ▓▓\▓▓    ▓▓
+ \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓       \▓▓▓▓▓▓▓\▓▓\▓▓   \▓▓_\▓▓▓▓▓▓▓
+                                               |  \__| ▓▓
+                                                \▓▓    ▓▓
+                                                 \▓▓▓▓▓▓ 
+'
+MENUCARD="
+\n Escoje una opcion del menu
+\n\t 1) Phising
+\t 2) SMS Spoofing
+\t 3) SPAM a emails
+\t 4) Identidad 
+\t 99) Menu principal"
 #Funciones
 def init()
     puts("#{LOGO} #{INICIO} #{MENUS}")
@@ -86,7 +106,7 @@ def sepa(opc)
     when "1"
         seccs()
     when "2"
-        puts("Hola")
+        seccard()
     when "3"
         puts("Hola")
     when "4"
@@ -275,5 +295,31 @@ def checkc()
     lista = lista.split("\n")
     puts "Correo a utilizar es: #{lista[0]}"
 end
+#seccion de carding
+def seccard()
+    puts "#{$limpiar}#{LOGOCARD} #{MENUCARD}\n"
+    print"\nElige tu opcion: "
+    opc = gets.chomp
+    case(opc)
+        when "1"
+            puts "Hola"
+        when "2"
+            puts "Hola"
+        when "3"
+            puts "Hola"
+        when "4"
+            puts "Hola"
+        when "99"
+            puts "Hola"
+        else
+            puts "Incorrecto pana"
+        end
+    def phising()
+        #Phishing by @suljot_gjoka & @thelinuxchoice (blakeye)
+        puts "Ejecutando phishing"
+        
+    end
+end
 #Inicio de programa
 init()
+#Bro me siento triste :(
