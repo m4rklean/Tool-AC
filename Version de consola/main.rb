@@ -8,6 +8,7 @@
 ########################################
 $limpiar = "\e[H\e[2J"
 puts("#{$limpiar}")
+puts("Cargando...")
 
 
 #dependencias (gemas)
@@ -27,7 +28,7 @@ $platform = TTY::Platform.new
 $ipaddr1 = IPAddr.new "127.0.0.1"
 
 #Variables de texto
-msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","All you need is love, all you need is hope","Hey bro, nice dick","F","11","Hecho en Mexico","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños", "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
+msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico","SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños", "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
@@ -94,6 +95,7 @@ MENUCARD="
 \t 99) Menu principal"
 #Funciones
 def init()
+    puts("#{$limpiar}")
     puts("#{LOGO} #{INICIO} #{MENUS}")
     print("\nNumero de seccion: ")
     op = gets.chomp
@@ -305,9 +307,10 @@ def seccard()
         when "4"
             puts "Hola"
         when "99"
-            puts "Hola"
+            init()
         else
             puts "Incorrecto pana"
+            seccard()
         end
     def phising()
         #Phishing by @suljot_gjoka & @thelinuxchoice (blakeye)

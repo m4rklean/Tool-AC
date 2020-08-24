@@ -4,7 +4,7 @@
 #	Instalador v1.0.0-beta para sistemas linux         #
 #													   #
 ########################################################
-echo "Elije tu metodo [apt, pacman, pkg (termux) o yum]"
+echo "Elije tu metodo [apt, pacman o yum]"
 read pack
 clear
 echo "                     ┏━━━━┓━━━━━━━━┏┓━━━━━━┏━━━┓┏━━━┓"
@@ -20,8 +20,7 @@ echo "                                                       instalador         
 echo "      Que tipo de usuario vas a ser "
 echo ""
 echo "  1) Usuario normal (PC Linux)"
-echo "  2) Usuario normal (Android Termux o ARM)"
-echo "  3) Desarrollador"
+echo "  2) Desarrollador"
 echo ""
 echo "Digita tu opcion:"
 read opc
