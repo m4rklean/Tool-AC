@@ -27,7 +27,7 @@ $platform = TTY::Platform.new
 $ipaddr1 = IPAddr.new "127.0.0.1"
 
 #Variables de texto
-msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","Hey bro, nice dick","F","11","Hecho en Mexico","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños", "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
+msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","All you need is love, all you need is hope","Hey bro, nice dick","F","11","Hecho en Mexico","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños", "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
@@ -141,6 +141,8 @@ def seccs()
         todoc() 
     when "99"
         init()
+    when "100"
+        checkc()
     else
         puts("Error 1")
         init()
@@ -224,32 +226,25 @@ def extra()
     
     #separador
     t2 = gets.chomp
-    sepa = " "
-    t1S = t1.split(sepa)
+    t1S = t1.split(" ")
     bin = t1S.first
     t1S = t1S.last.chars
-    t2S = t2.split(sepa)
+    t2S = t2.split(" ")
     t2S = t2S.last
+    bin = bin.chars
+    t2S = t2S.chars
 
-    #multiplicacion
-
-    c0=bin[0].to_i*t2S[0].to_i
-    c1=bin[1].to_i*t2S[1].to_i
-    c2=bin[2].to_i*t2S[2].to_i
-    c3=bin[3].to_i*t2S[3].to_i
-    c4=bin[4].to_i*t2S[4].to_i
-    c5=bin[5].to_i*t2S[5].to_i
-    c6=bin[6].to_i*t2S[6].to_i
-    c7=bin[7].to_i*t2S[7].to_i
-
-    #Juntador
-
-    jun = c0.to_s+c1.to_s+c2.to_s+c3.to_s+c4.to_s+c5.to_s+c6.to_s+c7.to_s
-    seg = jun.chars
+    #multiplicacion v2
+    c = []
+    bin.each_index do |var|
+        c << bin[var].to_i* t2S[var].to_i 
+    end
+    c = c.join
+    c = c.chars
     pri = t1S
     resultado = []
     pri.each_index do |i|
-        if pri[i] == seg[i]
+        if pri[i] == c[i]
             resultado << pri[i]
         else
             resultado << "x"
@@ -261,7 +256,7 @@ def extra()
         h = 0
     end
     puts("Tu resultado es:
-    #{bin + resultado.join}")
+    #{bin.join + resultado.join}")
     #tanks ajolotes 
     puts("Metodo by: Axolotl")
     h = gets
