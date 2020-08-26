@@ -114,7 +114,9 @@ def sepa(opc)
     when "4"
         puts("Hola")
     when "5"
-        puts("Hola")
+        puts("By: Danii Avellana")
+	h = gets.chomp 
+	init()
     when "99"
         puts("\nSPAM "* 20)
         exit
