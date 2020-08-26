@@ -22,4 +22,12 @@ Y para ejecutar
 ```
 ruby main.rb
 ```
+## Script de configuracion
+El script de configuracion se encarga de descargar y configurar todo para Tool-AC que esta 
+diseñado para no hacer todos los pasos anteriores, este se encuentra dentro del archivo .ZIP en:
+```
+'Version de consola/Installers/'
+```
+Existen para Windows y Linux, claro un script para cada plataforma, ejecuta el que sea concuerde con tu OS .
+Asi que deberias solo ejecutarlo y quedara mas que listo Tool-AC para su uso
 ## Docker
