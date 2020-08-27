@@ -14,7 +14,6 @@ puts("Cargando...")
 #dependencias (gemas)
 require 'colorize'
 require 'tty-platform'
-require 'ipaddr'
 require 'macaddr'
 
 
@@ -25,14 +24,13 @@ require 'json'
 
 #Clases de dependencias
 $platform = TTY::Platform.new
-$ipaddr1 = IPAddr.new "127.0.0.1"
 
 #Variables de texto
 msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico","SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños", "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
-ip = $ipaddr1.to_s
+ip = Net::HTTP.get(URI("https://api.ipify.org"))
 mac = Mac.addr 
 
 LOGO = " 
