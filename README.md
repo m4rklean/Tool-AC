@@ -12,6 +12,8 @@ La version de consola tiene una veriedad de herramientas que se pueden seleccion
 Esta herramienta dependen de las siguientas API's o aplicaciones
 ## APIS's
 - [Binlist](https://binlist.net/); [repositorio](https://github.com/binlist/data)
+- [ipify API](https://www.ipify.org/)
+- [Mac Adress](https://macaddress.io/)
 ## Gemas
 - [colorize](https://rubygems.org/gems/colorize)
 - [tty-platform](https://rubygems.org/gems/tty-platform)

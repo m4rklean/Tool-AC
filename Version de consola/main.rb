@@ -30,8 +30,8 @@ msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","All you need i
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
-ip = Net::HTTP.get(URI("https://api.ipify.org"))
-mac = Mac.addr 
+$ip = Net::HTTP.get(URI("https://api.ipify.org"))
+$mac = Mac.addr 
 
 LOGO = " 
                      ┏━━━━┓━━━━━━━━┏┓━━━━━━┏━━━┓┏━━━┓
@@ -46,14 +46,14 @@ LOGO = "
 msgdon = msgran.sample
 INICIO = " \t \t \t\t\t\t#{msgdon.yellow}
 \n\t\t  Github: https://github.com/Kedap/Tool-AC
-\t Time: #{hora.to_s.colorize(:white)}  Os: #{OS.to_s.colorize(:white)} #{OSV.to_s.colorize(:white)} Ip: #{ip.colorize(:white)} Mac Addres: #{mac.to_s.colorize(:white)}" 
+\tTime: #{hora.to_s.colorize(:white)}  Os: #{OS.to_s.colorize(:white)} #{OSV.to_s.colorize(:white)} Ip: #{$ip.colorize(:white)} Mac Addres: #{$mac.to_s.colorize(:white)}" 
 MENUS = "
 \n Escoje una seccion del menu
 \n \t1) CC'S
 \t2) Carding
 \t3) HackTools
 \t4) CrackTools
-\t5) Acerca de y creditos
+\t5) Acerca de, creditos e informacion del sistema
 \t99) Salir
 "
 LOGOCCS ="
@@ -91,6 +91,19 @@ MENUCARD="
 \t 3) SPAM a emails
 \t 4) Identidad 
 \t 99) Menu principal"
+LOGOINFO='
+                    / \-------------------, 
+                    \_,|                  | 
+                       |    informacion   | 
+                       |  ,-----------------
+                       \_/________________/ 
+                       '
+MENUINFO="
+\n Escoje una opcion
+\n\t 1) Acerca de
+\t 2) Creditos
+\t 3) Informacion del sistema
+\t 4) Ayuda"
 #Funciones
 def init()
     puts("#{$limpiar}")
@@ -112,11 +125,11 @@ def sepa(opc)
     when "4"
         puts("Hola")
     when "5"
-        puts("By: Danii Avellana")
+        seccinfo()
 	h = gets.chomp 
-	init()
+    init()
     when "99"
-        puts("\nSPAM "* 20)
+        puts("\nSPAM "* 35)
         exit
     end
 end
@@ -317,6 +330,80 @@ def seccard()
         puts "Ejecutando phishing"
         
     end
+end
+#Separador informacion
+def seccinfo()    
+    puts "#{$limpiar}#{LOGOINFO} #{MENUINFO}"
+    print "\nElige una opcion: "
+    opc = gets.chomp
+    case(opc)
+        when"1"
+            puts "Hola"
+        when "2"
+            puts "Hola"
+        when "3"
+            infoSistem()
+        when "4"
+            puts "Hola"
+        when "5"
+            puts "Hola"
+        else
+            seccinfo()
+        end
+end
+def infoSistem()
+    #Informacion de IP
+    puts "Obteniendo datos de direccion IP..."
+    uri = URI.parse("https://geo.ipify.org/api/v1?apiKey=at_zHp76XWLxoXxj9FwoEs76ZCs7lTnn&ipAddress=#{$ip} ")
+    request = Net::HTTP::Get.new(uri)
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+    inputip = JSON.parse(response.body)
+    geoip = inputip["location"]
+    uno = inputip["as"]
+    clienteip = uno["domain"]
+    proxyip = inputip["proxy"]
+
+    #Informacionde direccion MAC
+
+    puts "Obteniendo datos de direccion MAC..."
+    uri = URI.parse("https://api.macaddress.io/v1?apiKey=at_iVLS5CtmOkLSowBmFUrXPzYdSlTjg&output=json&search=#{$mac}")
+    request = Net::HTTP::Get.new(uri)
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+    macinput = JSON.parse(response.body)
+    macvendedor = macinput["vendorDetails"]
+    macdata = macinput["blockDetails"]
+    macdata = macdata["dateCreated"]
+    #Resultados
+    puts "\n#{$limpiar}Direccion IP: #{$ip}
+    \n Lugar 
+    \n\tPais: #{geoip["region"]} #{geoip["country"]}
+    \tCiudad: #{geoip["city"]} CP/Zip: #{geoip["postalCode"]}
+    \n Provedor
+    \n\tProvedor: #{clienteip}
+    \n Configuracion de Proxy
+    \n\tProxy: #{proxyip["proxy"]}
+    \tVPN: #{proxyip["vpn"]}
+    \tTor: #{proxyip["tor"]}"
+    puts"\nDireccion MAC: #{$mac}
+    \n Informacion
+    \n\tCompania: #{macvendedor["companyName"]}
+    \tDireccion de la compania: #{macvendedor["companyAddress"]}
+    \tPais de origen: #{macvendedor["countryCode"]}
+    \tFecha: #{macdata}"
 end
 #Inicio de programa
 init()
