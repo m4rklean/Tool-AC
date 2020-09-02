@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 #Version 1.1.0-aplha: 1- Script version, 1- Entrono facil, 0- Correccion 
 
 ########################################
@@ -26,7 +28,16 @@ require 'json'
 $platform = TTY::Platform.new
 
 #Variables de texto
-msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.","All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico","SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños", "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian","Don't worry, be happy"]
+msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.",
+"All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico",
+"SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños",
+ "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","T I E M P O O ! ! !",
+ "Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian",
+ "Don't worry, be happy"," ","D n E","No hay sistema joven","Hola wap@","Una troca salio de durango...",
+"Al toke mi rey","En efecto compañero","Esta va para el que lo lea <3","[Mensaje random]",
+"Puto el que lo lea","Un saludo para toda la banda","Un saludo para la grasa","Hey sister, nice clitoris",
+"SOFTWARE LIBRE","El original","Con linki park de fondo","Un tal Emilio esta leyendo esto, un saludo ;)",
+"Echale ganas mijo"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
@@ -71,18 +82,18 @@ MENUC= "
 \t5) Ejecutar todos en el siguiente orden: 1,2,3 y 4
 \t99) Menu principal"
 LOGOCARD = '
-______                          __ __                   
-/      \                        |  \  \                  
-|  ▓▓▓▓▓▓\ ______   ______   ____| ▓▓\▓▓_______   ______  
-| ▓▓   \▓▓|      \ /      \ /      ▓▓  \       \ /      \ 
-| ▓▓       \▓▓▓▓▓▓\  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓ ▓▓ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\
-| ▓▓   __ /      ▓▓ ▓▓   \▓▓ ▓▓  | ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓
-| ▓▓__/  \  ▓▓▓▓▓▓▓ ▓▓     | ▓▓__| ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓__| ▓▓
-\▓▓    ▓▓\▓▓    ▓▓ ▓▓      \▓▓    ▓▓ ▓▓ ▓▓  | ▓▓\▓▓    ▓▓
- \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓       \▓▓▓▓▓▓▓\▓▓\▓▓   \▓▓_\▓▓▓▓▓▓▓
-                                               |  \__| ▓▓
-                                                \▓▓    ▓▓
-                                                 \▓▓▓▓▓▓ 
+        ______                          __ __                   
+        /      \                        |  \  \                  
+        |  ▓▓▓▓▓▓\ ______   ______   ____| ▓▓\▓▓_______   ______  
+        | ▓▓   \▓▓|      \ /      \ /      ▓▓  \       \ /      \ 
+        | ▓▓       \▓▓▓▓▓▓\  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓ ▓▓ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\
+        | ▓▓   __ /      ▓▓ ▓▓   \▓▓ ▓▓  | ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓
+        | ▓▓__/  \  ▓▓▓▓▓▓▓ ▓▓     | ▓▓__| ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓__| ▓▓
+        \▓▓    ▓▓\▓▓    ▓▓ ▓▓      \▓▓    ▓▓ ▓▓ ▓▓  | ▓▓\▓▓    ▓▓
+         \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓       \▓▓▓▓▓▓▓\▓▓\▓▓   \▓▓_\▓▓▓▓▓▓▓
+                                                       |  \__| ▓▓
+                                                        \▓▓    ▓▓
+                                                         \▓▓▓▓▓▓ 
 '
 MENUCARD="
 \n Escoje una opcion del menu
@@ -312,7 +323,7 @@ def seccard()
     opc = gets.chomp
     case(opc)
         when "1"
-            puts "Hola"
+            phishing()
         when "2"
             puts "Hola"
         when "3"
@@ -330,6 +341,19 @@ def seccard()
         puts "Ejecutando phishing"
         
     end
+end
+
+def phishing()
+    puts"#{$limpiar}"
+    puts "\t\t\tBLACKEYE v1.5 BY: An0nUD4Y"
+    puts"\n"
+    confirmacion = $platform.linux?
+    if confirmacion == true
+        system("./libs/Blackeye/blackeye.sh")
+    else
+        system("$./libs/Blackeye/blackeye.sh")
+    end
+    seccard()
 end
 #Separador informacion
 def seccinfo()    

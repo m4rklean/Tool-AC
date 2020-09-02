@@ -30,6 +30,7 @@ function usern()
     Ruby
     PHP
     cURL
+    RunInBash
     Demas gemas...
     "
     $confirmacion = Read-Host "Estas de acuerdo con esto? [S/n]"
@@ -50,6 +51,8 @@ function usern()
     choco install php
     Write-Host "Instalando cURL" -ForegroundColor Yellow
     choco install curl
+    Write-Host "RunInBash" -ForegroundColor Yellow
+    choco install runinbash
     Write-Host "Instalando Gemas" -ForegroundColor Orange
     gem install colorize
     gem install tty-platform
@@ -90,6 +93,7 @@ function userd()
     Git
     Ngrok
     Node js
+    RunInBash
     Demas gemas..."
     $sat = Read-Host "Estasde acuerdo con esto? [S/n]"
     if ($sat -eq "n")
@@ -117,6 +121,8 @@ function userd()
     choco install ngrok
     Write-Host "Instalando Node js" -ForegroundColor Yellow
     choco install nodejs
+    Write-Host "Instalando RunInBash" -ForegroundColor Yellow
+    choco install runinbash
     Write-Host "Instalando Gemas" -ForegroundColor Orange
     gem install colorize
     gem install tty-platform

