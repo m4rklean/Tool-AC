@@ -13,7 +13,7 @@ trap("SIGINT") do
   exit(130)
 end
 def mailgen()
-  bandera = %w[-c Microsoft -d microsoft.com -f {f}{last}@{domain} -o correos.txt]
+  bandera = %w[-c Microsoft -d outlook.com -f {f}{last}@{domain} -o correos.txt]
   bandera.each_index do |i|
     ARGV << bandera[i]
   end

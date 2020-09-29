@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 
-#Version 1.1.0-aplha: 1- Script version, 1- Entrono facil, 0- Correccion 
+#Version 1.1.0-aplha: 1- Script version, 1- Entrono facil, 0- Correccion
 
-########################################
-##                                    ##
-## Contribuidores:                    ##
-## Danii Avellana. Team Obsidian      ##
-##                                    ##
-########################################
+########################################################
+##                                                    ##
+## Contribuidores:                                    ##
+## Danii Avellana. Team Movistar y Team Obsidian      ##
+##                                                    ##
+########################################################
 $limpiar = "\e[H\e[2J"
 puts("#{$limpiar}")
 puts("Cargando...")
@@ -42,9 +42,9 @@ hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
 $ip = Net::HTTP.get(URI("https://api.ipify.org"))
-$mac = Mac.addr 
+$mac = Mac.addr
 
-LOGO = " 
+LOGO = "
                      ┏━━━━┓━━━━━━━━┏┓━━━━━━┏━━━┓┏━━━┓
                      ┃┏┓┏┓┃━━━━━━━━┃┃━━━━━━┃┏━┓┃┃┏━┓┃
                      ┗┛┃┃┗┛┏━━┓┏━━┓┃┃━━━━━━┃┃━┃┃┃┃━┗┛
@@ -52,12 +52,12 @@ LOGO = "
                      ━┏┛┗┓━┃┗┛┃┃┗┛┃┃┗┓┗━━━┛┃┏━┓┃┃┗━┛┃
                      ━┗━━┛━┗━━┛┗━━┛┗━┛━━━━━┗┛━┗┛┗━━━┛
                      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                                          
+                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 "
 msgdon = msgran.sample
 INICIO = " \t \t \t\t\t\t#{msgdon.yellow}
 \n\t\t  Github: https://github.com/Kedap/Tool-AC
-\tTime: #{hora.to_s.colorize(:white)}  Os: #{OS.to_s.colorize(:white)} #{OSV.to_s.colorize(:white)} Ip: #{$ip.colorize(:white)} Mac Addres: #{$mac.to_s.colorize(:white)}" 
+\tTime: #{hora.to_s.colorize(:white)}  Os: #{OS.to_s.colorize(:white)} #{OSV.to_s.colorize(:white)} Ip: #{$ip.colorize(:white)} Mac Addres: #{$mac.to_s.colorize(:white)}"
 MENUS = "
 \n Escoje una seccion del menu
 \n \t1) CC'S
@@ -68,11 +68,11 @@ MENUS = "
 \t99) Salir
 "
 LOGOCCS ="
-\n\t\t\t ░░░░░░  ░░░░░░     ░░░░░░░ 
-\t\t\t▒▒      ▒▒          ▒▒      
-\t\t\t▒▒      ▒▒          ▒▒▒▒▒▒▒ 
-\t\t\t▓▓      ▓▓               ▓▓ 
-\t\t\t ██████  ██████     ███████ " 
+\n\t\t\t ░░░░░░  ░░░░░░     ░░░░░░░
+\t\t\t▒▒      ▒▒          ▒▒
+\t\t\t▒▒      ▒▒          ▒▒▒▒▒▒▒
+\t\t\t▓▓      ▓▓               ▓▓
+\t\t\t ██████  ██████     ███████ "
 MENUC= "
 \n Escoje una opcion del menu
 \n \t1) Extrapolacion de bins
@@ -80,12 +80,13 @@ MENUC= "
 \t3) Gen CC's apartir de un bin
 \t4) Checker
 \t5) Ejecutar todos en el siguiente orden: 1,2,3 y 4
+\t6) Verificacion de luhn
 \t99) Menu principal"
 LOGOCARD = '
-        ______                          __ __                   
-        /      \                        |  \  \                  
-        |  ▓▓▓▓▓▓\ ______   ______   ____| ▓▓\▓▓_______   ______  
-        | ▓▓   \▓▓|      \ /      \ /      ▓▓  \       \ /      \ 
+        ______                          __ __
+        /      \                        |  \  \
+        |  ▓▓▓▓▓▓\ ______   ______   ____| ▓▓\▓▓_______   ______
+        | ▓▓   \▓▓|      \ /      \ /      ▓▓  \       \ /      \
         | ▓▓       \▓▓▓▓▓▓\  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓ ▓▓ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\
         | ▓▓   __ /      ▓▓ ▓▓   \▓▓ ▓▓  | ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓
         | ▓▓__/  \  ▓▓▓▓▓▓▓ ▓▓     | ▓▓__| ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓__| ▓▓
@@ -93,21 +94,32 @@ LOGOCARD = '
          \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓       \▓▓▓▓▓▓▓\▓▓\▓▓   \▓▓_\▓▓▓▓▓▓▓
                                                        |  \__| ▓▓
                                                         \▓▓    ▓▓
-                                                         \▓▓▓▓▓▓ 
+                                                         \▓▓▓▓▓▓
 '
 MENUCARD="
 \n Escoje una opcion del menu
 \n\t 1) Phising
 \t 2) SMS Spoofing
 \t 3) SPAM a emails
-\t 4) Identidad 
+\t 4) Identidad
 \t 99) Menu principal"
+LOGOSPAM="
+\t\t▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄ ▄▄▄ ▄▄▄     ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄ ▄▄   ▄▄
+\t\t█       █  █▄█  █      █   █   █   █       █       █      █  █▄█  █
+\t\t█    ▄▄▄█       █  ▄   █   █   █   █  ▄▄▄▄▄█    ▄  █  ▄   █       █
+\t\t█   █▄▄▄█       █ █▄█  █   █   █   █ █▄▄▄▄▄█   █▄█ █ █▄█  █       █
+\t\t█    ▄▄▄█       █      █   █   █▄▄▄█▄▄▄▄▄  █    ▄▄▄█      █       █
+\t\t█   █▄▄▄█ ██▄██ █  ▄   █   █       █▄▄▄▄▄█ █   █   █  ▄   █ ██▄██ █
+\t\t█▄▄▄▄▄▄▄█▄█   █▄█▄█ █▄▄█▄▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄█   █▄█ █▄▄█▄█   █▄█
+\n\t\t\t\t\t\t\t\t\tBy andrewyli
+"
+$confirmacionl = $platform.linux?
 LOGOINFO='
-                    / \-------------------, 
-                    \_,|                  | 
-                       |    informacion   | 
+                    / \-------------------,
+                    \_,|                  |
+                       |    informacion   |
                        |  ,-----------------
-                       \_/________________/ 
+                       \_/________________/
                        '
 MENUINFO="
 \n Escoje una opcion
@@ -137,7 +149,7 @@ def sepa(opc)
         puts("Hola")
     when "5"
         seccinfo()
-	h = gets.chomp 
+	h = gets.chomp
     init()
     when "99"
         puts("\nSPAM "* 35)
@@ -150,7 +162,7 @@ def seccs()
     puts("#{$limpiar} #{LOGOCCS} #{MENUC}")
     print("\nElige tu opcion: ")
     op = gets.chomp
-    
+
     #Separacion de las opciones
 
     case(op)
@@ -164,7 +176,9 @@ def seccs()
         #checkc(), esta en fase de desarrollo
         puts"Esta funcion se encuentra en desarrollo"
     when "5"
-        todoc() 
+        todoc()
+    when "6"
+        luhncc()
     when "99"
         init()
     when "100"
@@ -193,11 +207,11 @@ def gencc()
             num = num.to_s
             $cc = $cc + num
             $i +=1
-        end 
+        end
         puts("#{$cc}|#{$fecha}|#{$ccv}")
         $o += 1
-    end while $o < $cad 
-    
+    end while $o < $cad
+
     no = gets.chomp
     if $seccioncc == true
         seccs()
@@ -229,7 +243,7 @@ def provi()
     Marca: #{info["brand"]}
     Prepago: #{info["prepaid"]}
     Pais: #{pais["name"]}  #{pais["alpha2"]} #{pais["currency"]}
-    Banco: #{bank["name"]}  #{bank["url"]} #{bank["city"]} #{bank["phone"]}  
+    Banco: #{bank["name"]}  #{bank["url"]} #{bank["city"]} #{bank["phone"]}
 
     ")
     no = gets.chomp
@@ -249,7 +263,7 @@ def extra()
     print("T1: ")
     t1 = gets.chomp
     print("T2: ")
-    
+
     #separador
     t2 = gets.chomp
     t1S = t1.split(" ")
@@ -263,7 +277,7 @@ def extra()
     #multiplicacion v2
     c = []
     bin.each_index do |var|
-        c << bin[var].to_i* t2S[var].to_i 
+        c << bin[var].to_i* t2S[var].to_i
     end
     c = c.join
     c = c.chars
@@ -274,7 +288,7 @@ def extra()
             resultado << pri[i]
         else
             resultado << "x"
-        end  
+        end
     end
     if resultado[7] == "x"
         resultado[7] = "1"
@@ -283,7 +297,7 @@ def extra()
     end
     puts("Tu resultado es:
     #{bin.join + resultado.join}")
-    #tanks ajolotes 
+    #tanks ajolotes
     puts("Metodo by: Axolotl")
     h = gets
     if $seccioncc == true
@@ -302,7 +316,7 @@ def checkc()
     print("[cc]>> ")
     cc = gets.chomp
     #Codigo del generador de emails https://github.com/navisecdelta/EmailGen
-    require './libs/Emailgen/EmailGen.rb' 
+    require './libs/Emailgen/EmailGen.rb'
     puts "Borrando lista de Emails anteriores."
     if File.exist?("./correos.txt")
         File.delete("./correos.txt")
@@ -316,6 +330,51 @@ def checkc()
     lista = lista.split("\n")
     puts "Correo a utilizar es: #{lista[0]}"
 end
+def luhncc()
+    puts "Verificacion de luhn o de modulo 10"
+    print "\nCC que quieras verificar: "
+    cc = gets.chomp.chars
+    pares = [0,"1",2,"3",4,"5",6,"7",8,"9",10,"11",12,"13",14,"15"]
+    multil0 = []
+    multil1 = []
+    #multiplicacion
+    cc.each_index do |i|
+
+        if i == pares[i]
+
+          swap = []
+          swap << cc[i].to_i * 2
+          swap[0] = swap[0].to_s
+          swap = swap[0].chars
+
+          multil1 << swap[0].to_i + swap[1].to_i
+        else
+            multil0 << cc[i].to_i
+        end
+    end
+
+    #suma
+
+    sum = [0]
+
+    multil0.each_index do |o|
+        nue = sum[0]
+        sum[0] = multil0[o] + multil1[o] + nue
+    end
+    resultado = sum[0].to_s
+    resultado = resultado.chars
+
+    #Conparacion
+    if resultado.last == "0"
+        puts"✅"
+    else
+        puts"❌"
+    end
+
+    print "No viste nada? Intenta instalar y/o configurar unicode"
+    h = gets
+    seccs()
+end
 #seccion de carding
 def seccard()
     puts "#{$limpiar}#{LOGOCARD} #{MENUCARD}\n"
@@ -325,9 +384,9 @@ def seccard()
         when "1"
             phishing()
         when "2"
-            puts "Hola"
+            spoofsms()
         when "3"
-            puts "Hola"
+            spama()
         when "4"
             puts "Hola"
         when "99"
@@ -339,7 +398,7 @@ def seccard()
     def phising()
         #Phishing by @suljot_gjoka & @thelinuxchoice (blakeye)
         puts "Ejecutando phishing"
-        
+
     end
 end
 
@@ -347,16 +406,50 @@ def phishing()
     puts"#{$limpiar}"
     puts "\t\t\tBLACKEYE v1.5 BY: An0nUD4Y"
     puts"\n"
-    confirmacion = $platform.linux?
-    if confirmacion == true
+    if $confirmacionl == true
         system("./libs/Blackeye/blackeye.sh")
     else
         system("$./libs/Blackeye/blackeye.sh")
     end
     seccard()
 end
+def spoofsms()
+    puts "Seleccionando servidor..."
+end
+def spama()
+    #Spam de emails por andrewyli Repositorio: https://github.com/andrewyli/emailSpam
+    puts LOGOSPAM
+    puts "Este spamer funciona con emails de gmail\n Ejemplo: example@gmail.com"
+    print"\nIngresa tu correo:"
+    email = gets.chomp
+    print"\nTu password"
+    password = gets.chomp
+
+    print "\nDestinatario: "
+    to = gets.chomp
+    puts "\nIngresa el mensaje que desea enviar. Cuando termines presiona la tecla <<tab>>"
+    puts ""
+    mensaje = gets("\t\n").chomp
+    puts "\nDeseas enviar este mensaje [S/n]"
+    ok = gets.chomp
+    if ok == "n"
+        spama()
+    else
+        puts "\nEnviando..."
+    end
+
+    File.open("./libs/Spamer/to.txt", "w") { |f| f.write "#{to}" }
+    File.open("./libs/Spamer/youmail.txt", "w") { |f| f.write "['#{email}']"}
+    File.open("./libs/Spamer/password.txt", "w") { |f| f.write "#{password}" }
+    File.open("./libs/Spamer/message.txt", "w") { |f| f.write "#{mensaje}" }
+    if $confirmacionl == true
+        system("python2 ./libs/Spamer/forwardSpam.py")
+    else
+        system("python27 ./libs/Spamer/forwardSpam.py")
+    end
+end
 #Separador informacion
-def seccinfo()    
+def seccinfo()
     puts "#{$limpiar}#{LOGOINFO} #{MENUINFO}"
     print "\nElige una opcion: "
     opc = gets.chomp
@@ -413,7 +506,7 @@ def infoSistem()
     macdata = macdata["dateCreated"]
     #Resultados
     puts "\n#{$limpiar}Direccion IP: #{$ip}
-    \n Lugar 
+    \n Lugar
     \n\tPais: #{geoip["region"]} #{geoip["country"]}
     \tCiudad: #{geoip["city"]} CP/Zip: #{geoip["postalCode"]}
     \n Provedor
