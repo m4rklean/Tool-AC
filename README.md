@@ -1,5 +1,5 @@
 # Tool-AC Version de script
-Multiherramienta para bineos, carding y obtencion de cuentas para **Obsidian Team** y otras organizaciones
+Multiherramienta para bineos, carding y obtencion de cuentas para **Obsidian Team**, **Team Movistar** y otras organizaciones
 
 ![Captura](/Images/Captura.png)
 # Como funciona
@@ -31,3 +31,4 @@ Depende el sistema opertivo
 - [Chat Telegram](https://t.me/Kedap_Develop)
 
 #TeamObsidian
+#TeamMovistar
