@@ -361,14 +361,20 @@ def luhncc()
         nue = sum[0]
         sum[0] = multil0[o] + multil1[o] + nue
     end
-    resultado = sum[0].to_s
-    resultado = resultado.chars
+    resultado0 = sum[0].to_s
+    resultado = resultado0.chars
 
-    #Conparacion
+    #Buscando el numero posible
+    puesto = cc.last
+    resultadoN = resultado0.to_i - puesto.to_i
+    falta = resultadoN-100
+    falta = falta.to_s; falta = falta.chars; falta = falta.last
+    #Resultado del check
     if resultado.last == "0"
         puts"✅"
     else
         puts"❌"
+        puts "Intenta colocar #{falta} como la ultima cifra"
     end
 
     print "No viste nada? Intenta instalar y/o configurar unicode"
