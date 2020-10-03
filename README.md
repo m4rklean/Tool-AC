@@ -8,7 +8,7 @@ La version de consola tiene una veriedad de herramientas que se pueden seleccion
 - Carding (Tecnicas de carding, phising, spam, spoff sms entre otras...)
 - HackTools (Herramientas populares como: Wifi-cracker, ataque MIT, jonhy rapper)
 - CrackTools (Herramientas como checkers, generador de combos, proxys)
-# API's utilizadas, dependencias y codigo basado
+## API's utilizadas, dependencias y codigo basado
 Esta herramienta dependen de las siguientas API's o aplicaciones
 ## APIS's
 - [Binlist](https://binlist.net/); [repositorio](https://github.com/binlist/data)

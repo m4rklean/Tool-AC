@@ -84,15 +84,15 @@ read opc
     arch=$(uname -a | grep -o 'arm' | head -n1)
     arch2=$(uname -a | grep -o 'Android' | head -n1)
     if [[ $arch == *'arm'* ]] || [[ $arch2 == *'Android'* ]] ; then
-    wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip > /dev/null 2>&1
+        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip > /dev/null 2>&1
 
     if [[ -e ngrok-stable-linux-arm.zip ]]; then
-    unzip ngrok-stable-linux-arm.zip > /dev/null 2>&1
-    chmod +x ngrok
-    rm -rf ngrok-stable-linux-arm.zip
+        unzip ngrok-stable-linux-arm.zip > /dev/null 2>&1
+        chmod +x ngrok
+        rm -rf ngrok-stable-linux-arm.zip
     else
-    printf "\e[1;93m[!] Download error... Termux, run:\e[0m\e[1;77m pkg install wget\e[0m\n"
-    exit 1
+        printf "\e[1;93m[!] Download error... Termux, run:\e[0m\e[1;77m pkg install wget\e[0m\n"
+        exit 
     fi
 
     echo "Instalando gemas..."
@@ -112,9 +112,9 @@ read opc
     echo "Instalado"
     echo "Ejecuta:"
     echo "ruby main.rb"
- }
+}
 
- case $opc in "1") usern ;;
+case $opc in "1") usern ;;
 "2") userd ;;
 *)
 echo "No bro..."
