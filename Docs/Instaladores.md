@@ -8,7 +8,7 @@ Y para ejecutar
 ```
 ruby main.rb
 ```
-##Termux
+## Termux
 En termux se recomienda utilizar la utilizar el [script de instalacion]('/Version de consola/Installers/Linux/Termux.sh')
 y para la facilitacion puedes utilizar este comando (Asumiendo que usted ya tiene cURL instalado en su dispositivo termux):
 ```
