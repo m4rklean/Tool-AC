@@ -421,39 +421,16 @@ def phishing()
     puts"#{$limpiar}"
     puts "\t\t\tBLACKEYE v1.5 BY: An0nUD4Y"
     puts"\n"
-    system("bash commands.sh")
+    system("bash commands.sh 0")
 end
+
 def spama()
-    #Spam de emails por andrewyli Repositorio: https://github.com/andrewyli/emailSpam
-    puts LOGOSPAM
-    puts "Este spamer funciona con emails de gmail\n Ejemplo: example@gmail.com"
-    print"\nIngresa tu correo:"
-    email = gets.chomp
-    print"\nTu password"
-    password = gets.chomp
-
-    print "\nDestinatario: "
-    to = gets.chomp
-    puts "\nIngresa el mensaje que desea enviar. Cuando termines presiona la tecla <<tab>>"
-    puts ""
-    mensaje = gets("\t\n").chomp
-    puts "\nDeseas enviar este mensaje [S/n]"
-    ok = gets.chomp
-    if ok == "n"
-        spama()
-    else
-        puts "\nEnviando..."
-    end
-
-    File.open("./libs/Spamer/to.txt", "w") { |f| f.write "#{to}" }
-    File.open("./libs/Spamer/youmail.txt", "w") { |f| f.write "['#{email}']"}
-    File.open("./libs/Spamer/password.txt", "w") { |f| f.write "#{password}" }
-    File.open("./libs/Spamer/message.txt", "w") { |f| f.write "#{mensaje}" }
-    if $confirmacionl == true
-        system("python2 ./libs/Spamer/forwardSpam.py")
-    else
-        system("python27 ./libs/Spamer/forwardSpam.py")
-    end
+    #Necesario python 2
+    puts "Necesitas crear el correo (Contenido) en un .txt o .html
+    Es recomendable que tengas una cuenta de www.smtp2go.com ya que la cuenta por defecto es posbil que no funciones
+    Una vez que tengas esto presiona cualquier tecla"
+    h = gets
+    system("bash commands.sh 1")
 end
 #Separador informacion
 def seccinfo()
