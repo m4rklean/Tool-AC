@@ -17,6 +17,7 @@ puts("Cargando...")
 require 'colorize'
 require 'tty-platform'
 require 'macaddr'
+require 'faker'
 
 
 #cURL -H
@@ -399,7 +400,7 @@ def seccard()
         when "2"
             spama()
         when "3"
-            puts "Hola"
+            idp()
         when "99"
             init()
         else
@@ -427,10 +428,55 @@ end
 def spama()
     #Necesario python 2
     puts "Necesitas crear el correo (Contenido) en un .txt o .html
-    Es recomendable que tengas una cuenta de www.smtp2go.com ya que la cuenta por defecto es posbil que no funciones
+    Es recomendable que tengas una cuenta de www.smtp2go.com ya que la cuenta por defecto es posbile que no funciones
     Una vez que tengas esto presiona cualquier tecla"
     h = gets
     system("bash commands.sh 1")
+end
+
+def idp()
+    puts "Generando datos..."
+    puts"#{$limpiar}
+    \t\t--==[ Datos ]==--
+
+    \tNombre: #{Faker::Name.name}
+    \tDireccion: #{Faker::Address.full_address}
+    \tGenero: #{Faker::Gender.binary_type}
+    \tNacimiento : #{Faker::Date.birthday(min_age: 18, max_age: 65)}
+    \tTelefono: #{Faker::PhoneNumber.cell_phone}
+
+    \t\t--==[ Internet ]==--
+
+    \tCorreo: #{Faker::Internet.email}
+    \tUsername: #{Faker::Internet.username}
+    \tPassword: #{Faker::Internet.password}
+    \tIP: #{Faker::Internet.ip_v4_address}
+    \tDireccion MAC: #{Faker::Internet.mac_address}
+    \tUser agent: #{Faker::Internet.user_agent}
+
+    \t\t--==[ Educacion ]==--
+
+    \tGrado de estudios: #{Faker::Job.education_level}
+    \tUniversidad: #{Faker::Educator.university}
+    \tCampus: #{Faker::Educator.campus}
+    \tEstudia: #{Faker::Educator.subject}
+
+    \t\t--==[ Trabajo ]==--
+
+    \tTrabaja en: #{Faker::Company.name}
+    \tPuesto: #{Faker::Job.position}
+    \tSIC de la compania: #{Faker::Company.sic_code}
+
+    \t\t--==[ Vehiculo ]==--
+
+    \tMarca y modelo: #{Faker::Vehicle.make_and_model}
+    \tColor: #{Faker::Vehicle.color}
+    \tAño: #{Faker::Vehicle.year}
+    \tLicense plate: #{Faker::Vehicle.license_plate }
+
+    -- Cualquier tecla para continuar --"
+    h = gets
+    seccard()
 end
 #Separador informacion
 def seccinfo()

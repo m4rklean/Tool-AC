@@ -19,6 +19,7 @@ Esta herramienta dependen de las siguientas API's o aplicaciones
 - [tty-platform](https://rubygems.org/gems/tty-platform)
 - [uri](https://rubygems.org/gems/uri)
 - [json](https://rubygems.org/gems/json)
+- [faker-ruby](https://github.com/faker-ruby/faker#generators)
 
 ## Aplicaciones
 - [blackeye](https://github.com/An0nUD4Y/blackeye)
