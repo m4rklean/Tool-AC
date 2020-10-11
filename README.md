@@ -1,7 +1,7 @@
 # Tool-AC Version de script
 Multiherramienta para bineos, carding y obtencion de cuentas para **Team Movistar** y otras organizaciones
 
-![Captura](/Images/Captura.png)
+![Captura](/Images/Captura.jpg)
 # Como funciona
 La version de consola tiene una veriedad de herramientas que se pueden seleccionar desde el menu principal, alguna de las categorias son 
 - CC's (Orientada al bineo)
