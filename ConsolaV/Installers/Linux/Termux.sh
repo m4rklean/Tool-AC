@@ -22,6 +22,8 @@ read opc
 	echo "Ruby"
     echo "PHP"
     echo "cURL"
+    echo "wget"
+    echo "unzip"
     echo "Demas gemas..."
 	echo "Estas deacuerdo con esto? [S/n]"
 	read ola
@@ -33,6 +35,13 @@ read opc
 	fi
     echo "Instalando ruby..."
     pkg install ruby
+    echo "Instalado unzip"
+    pkg install unzip
+    echo "Instalando wget"
+    pkg install wget
+    echo "Instalando Tool-AC"
+    wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
+    unzip Tool-AC_1.1.0-beta.zip;   
     echo "Instalando gemas..."
     gem install colorize
     gem install tty-platform
@@ -62,6 +71,8 @@ read opc
     echo "PHP"
     echo "cURL"
     echo "ngrok"
+    echo "unzip"
+    echo "wget"
     echo "Demas gemas..."
 	echo "Estas deacuerdo con esto? [S/n]"
 	read ola
@@ -81,6 +92,10 @@ read opc
     pkg install PHP
     echo "Instando cURL"
     pkg install curl 
+    echo "Instalando unzip"
+    pkg install unzip
+    echo "Instalando wget"
+    pkg install wget
     echo "Instando ngrok"
     arch=$(uname -a | grep -o 'arm' | head -n1)
     arch2=$(uname -a | grep -o 'Android' | head -n1)
@@ -96,6 +111,9 @@ read opc
         exit 
     fi
 
+    echo "Descargando Tool-AC"
+    wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
+    unzip Tool-AC_1.1.0-beta.zip;   
     echo "Instalando gemas..."
     gem install colorize
     gem install tty-platform

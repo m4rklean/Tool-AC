@@ -1,5 +1,5 @@
 ## Linux
-Debes de tener instalado [ruby](https://www.ruby-lang.org/es/), [Bundler](https://bundler.io/), [PHP](https://www.php.net/), [cURL](https://curl.haxx.se/) La instalacion dependera de tu distribucion de linux. Una vez tengas instalado tendras que descargar el este paquete.
+Debes de tener instalado [ruby](https://www.ruby-lang.org/es/), [Bundler](https://bundler.io/), [PHP](https://www.php.net/), [cURL](https://curl.haxx.se/) La instalacion dependera de tu distribucion de linux. Una vez tengas instalado tendras que descargar este [archivo](https://github.com/Kedap/Tool-AC/releases/tag/Beta).
 Descomprimes con tu programa de preferencia y abres una terminal en la misma carpeta y ejecuta los siguientes comando:
 ```
 bundle install
@@ -18,13 +18,10 @@ curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/
 y sigue con las indicaciones
 ## Script de configuracion
 El script de configuracion se encarga de descargar y configurar todo para Tool-AC que esta 
-diseñado para no hacer todos los pasos anteriores, este se encuentra dentro del archivo .ZIP en:
+diseñado para no hacer todos los pasos anteriores.
+Solo ejecuta:
 ```
-'ConsolaV/Installers/'
-```
-o bien:
-```
-curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/Linux.sh -sSf | sh
+curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/LinuxD.sh -sSf | sh
 ```
 ## Windows/MacOS
-En estos sistemas operativos no todas las herramientas se ejecutan ya que estas son diseñadas para linux. Pero en un futuro muy cercano podra haber soporte para estos sistemas operativos, si quieres ayudar a acelerar el proceso lee el README en colaborar
+En estos sistemas operativos no todas las herramientas se ejecutan ya que estas son diseñadas para linux. Pero en un futuro muy cercano podra haber soporte para estos sistemas operativos, si quieres ayudar a acelerar el proceso lee el [README](/README.md) en colaborar
