@@ -5,7 +5,7 @@
 ########################################################
 ##                                                    ##
 ## Contribuidores:                                    ##
-## Danii Avellana. Team Movistar y Team Obsidian      ##
+## Kedap דנטה.Team Movistar                           ##
 ##                                                    ##
 ########################################################
 $limpiar = "\e[H\e[2J"
@@ -29,11 +29,11 @@ require 'json'
 $platform = TTY::Platform.new
 
 #Variables de texto
-msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.", "msgdon.sample","Patromonio de #TeamMovistar",
+msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.", "msgdon.sample","Power by #TeamMovistar",
 "All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico",
 "SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños","2.2",
 "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","T I E M P O O ! ! !",
-"Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Power by #TeamObsidian", "No hay chiste",
+"Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Obsidian", "No hay chiste",
 "Don't worry, be happy"," ","D n E","No hay sistema joven","Hola wap@","Una troca salio de durango...",
 "Al toke mi rey","En efecto compañero","Esta va para el que lo lea <3","[Mensaje random]", "RubRub?",
 "Puto el que lo lea","Un saludo para toda la banda","Un saludo para la grasa","Hey sister, nice clitoris",
@@ -525,7 +525,7 @@ end
 #Separador informacion
 def seccinfo()
     puts "#{$limpiar}#{LOGOINFO} #{MENUINFO}"
-    print "\nElige una opcion: "
+    print "\n\nElige una opcion: "
     opc = gets.chomp
     case(opc)
         when"1"
@@ -548,9 +548,9 @@ def AcercaD()
     puts $limpiar
     puts "#{ACERCAD}"
     puts "\n\n\n\t\t Tool Acuont Cracking (Tool-AC). \n\t\t Repositorio: https://github.com/kedap/Tool-AC
-    \n\tAutor v1.1-alpha: Kedap (Danii Avellana)
-    \tOriginalmente para: Team Obsidian
-    \tHerramienta oficial de: Team Movistar y Team Obsidian
+    \n\tAutor v1.1-alpha: Kedap (דנטה)
+    \tPara: Team Movistar
+    \tHerramienta oficial de: Team Movistar 
     \n\tEsta herramienta fue creada para la facilitacion de cuentas relacionadas para el Carding y el Bineo"
     print"\n\n --Cualquier tecla para continuar--"
 end
