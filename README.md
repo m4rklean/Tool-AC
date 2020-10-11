@@ -25,6 +25,7 @@ Esta herramienta dependen de las siguientas API's o aplicaciones
 - [blackeye](https://github.com/An0nUD4Y/blackeye)
 - [EmailGen](https://github.com/navisecdelta/EmailGen)
 - [Bundler](https://bundler.io/)
+- [Generador de combos](https://github.com/Juni0r007/PasTerm)
 - [Rubygems](https://rubygems.org/)
 # [Uso e instalacion](/Docs/Instaladores.md)
 Depende el sistema opertivo

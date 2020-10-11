@@ -63,9 +63,8 @@ MENUS = "
 \n Escoje una seccion del menu
 \n \t1) CC'S
 \t2) Carding
-\t3) HackTools
-\t4) CrackTools
-\t5) Acerca de, creditos e informacion del sistema
+\t3) CrackTools
+\t4) Acerca de, creditos e informacion del sistema
 \t99) Salir
 "
 LOGOCCS ="
@@ -103,16 +102,6 @@ MENUCARD="
 \t 2) SPAM a emails
 \t 3) Identidad
 \t 99) Menu principal"
-LOGOSPAM="
-\t\t▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄ ▄▄▄ ▄▄▄     ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄ ▄▄   ▄▄
-\t\t█       █  █▄█  █      █   █   █   █       █       █      █  █▄█  █
-\t\t█    ▄▄▄█       █  ▄   █   █   █   █  ▄▄▄▄▄█    ▄  █  ▄   █       █
-\t\t█   █▄▄▄█       █ █▄█  █   █   █   █ █▄▄▄▄▄█   █▄█ █ █▄█  █       █
-\t\t█    ▄▄▄█       █      █   █   █▄▄▄█▄▄▄▄▄  █    ▄▄▄█      █       █
-\t\t█   █▄▄▄█ ██▄██ █  ▄   █   █       █▄▄▄▄▄█ █   █   █  ▄   █ ██▄██ █
-\t\t█▄▄▄▄▄▄▄█▄█   █▄█▄█ █▄▄█▄▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄█   █▄█ █▄▄█▄█   █▄█
-\n\t\t\t\t\t\t\t\t\tBy andrewyli
-"
 $confirmacionl = $platform.linux?
 LOGOINFO='
                     / \-------------------,
@@ -127,7 +116,19 @@ MENUINFO="
 \t 2) Creditos
 \t 3) Informacion del sistema
 \t 4) Ayuda"
-
+LOGOCRACK='
+_________                       __   ___________              __          
+\_   ___ \____________    ____ |  | ____    ___/ ____   ____ |  |   ______
+/    \  \/\_  __ \__  \ _/ ___\|  |/ / |    |   / __ \ / __ \|  |  /  ___/
+\     \____|  | \// __ \_  \___|    \  |    |  (  \_\ )  \_\ )  |__\___ \ 
+ \______  /|__|  (____  /\___  /__|_ \ |____|   \____/ \____/|____/____  \
+        \/            \/     \/     \/                                 \/ 
+'
+MENUCRACK="
+\n Escoje una opcion
+\n\t 1) Generar lista de proxys
+\t 2) Decifrador de HASH
+\t 3) Generador de combos"
 ACERCAD='
 
        __     ___  ____  ____   ___    __        ____   ____ 
@@ -152,10 +153,8 @@ def sepa(opc)
     when "2"
         seccard()
     when "3"
-        puts("Hola")
+        seccrack()
     when "4"
-        puts("Hola")
-    when "5"
         seccinfo()
 	h = gets.chomp
     init()
@@ -477,6 +476,51 @@ def idp()
     -- Cualquier tecla para continuar --"
     h = gets
     seccard()
+end
+#Separador del cracktools
+def seccrack()
+    puts "#{$limpiar} #{LOGOCRACK} #{MENUCRACK}"
+    print "Escribe tu opcion: "
+    opc = gets.chomp
+    case (opc)
+    when "1"
+        proxy()
+    when "2"
+        hash()
+    when "3"
+        combos()
+    else
+        seccrack()
+    end
+end
+#Lista de proxys
+def proxy()
+    puts"\nQue tipo de proxy quieres? [http/Socks4]"
+    tipo = gets.chomp
+    puts"Ingresa el codigo del pais que deseas la lista. Por ejemplo US"
+    codigo = gets.chomp
+    puts "Generando lista..."
+
+    #Generando:
+
+    uri = URI.parse("https://api.proxyscrape.com?request=getproxies&proxytype=#{tipo}&timeout=10000&country=#{codigo}&anonymity=anonymous&ssl=yes")
+    response = Net::HTTP.get_response(uri)
+    lista = response.body
+
+    puts"Lista de proxys
+    #{lista}"
+    print"-- ENTER para continuar --"
+    h = gets
+end
+def hash()
+    puts "https://md5hashing.net/"
+    print"-- ENTER para continuar --"
+    h = gets
+end
+def combos()
+    puts"Es necesario utilizar VPN para ejecutar este programa, enter cuando estes listo"
+    h = gets
+    system("bash commands.sh 2")
 end
 #Separador informacion
 def seccinfo()

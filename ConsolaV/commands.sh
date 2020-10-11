@@ -5,6 +5,9 @@ if [ $1 = 0 ]; then
 elif [ $1 = 1 ]; then
 	cd libs/Spamer/
 	python2 spoofer.py
+elif [ $1 = 2 ]; then
+	cd libs/PasTerm/
+	php pasterm.php
 else
-	echo "Este documento es ncesario"
+	echo "Este archivo es ncesario"
 fi
