@@ -3,7 +3,6 @@ GEM
   specs:
     awesome_print (1.8.0)
     colorize (0.8.1)
-    curl (0.0.9)
       awesome_print (>= 0.2.1)
       unidecoder (>= 1.1.1)
     ipaddr (1.2.2)
