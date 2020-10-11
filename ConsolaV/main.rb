@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-#Version 1.1.0-aplha: 1- Script version, 1- Entrono facil, 0- Correccion
+#Version 1.1.0-beta: 1- Script version, 1- Entrono facil, 0- Correccion
 
 ########################################################
 ##                                                    ##
@@ -38,7 +38,7 @@ msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.", "msgdon.sample
 "Al toke mi rey","En efecto compañero","Esta va para el que lo lea <3","[Mensaje random]", "RubRub?",
 "Puto el que lo lea","Un saludo para toda la banda","Un saludo para la grasa","Hey sister, nice clitoris",
 "SOFTWARE LIBRE","El original","Con linki park de fondo","Un tal Emilio esta leyendo esto, un saludo ;)",
-"Echale ganas mijo","The time change :("]
+"Echale ganas mijo","The time change :(","نريد التغيير!"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
@@ -128,7 +128,8 @@ MENUCRACK="
 \n Escoje una opcion
 \n\t 1) Generar lista de proxys
 \t 2) Decifrador de HASH
-\t 3) Generador de combos"
+\t 3) Generador de combos
+\t 99) Menu principal"
 ACERCAD='
 
        __     ___  ____  ____   ___    __        ____   ____ 
@@ -136,6 +137,13 @@ ACERCAD='
      /(  )\ ( (__  )__)  )   /( (__  /(  )\      )(_) ) )__) 
     (__)(__) \___)(____)(_)\_) \___)(__)(__)    (____/ (____)
 '
+LOGOCREDITOS="
+ ██████╗██████╗ ███████╗██████╗ ██╗████████╗ ██████╗ ███████╗
+██╔════╝██╔══██╗██╔════╝██╔══██╗██║╚══██╔══╝██╔═══██╗██╔════╝
+██║     ██████╔╝█████╗  ██║  ██║██║   ██║   ██║   ██║███████╗
+██║     ██╔══██╗██╔══╝  ██║  ██║██║   ██║   ██║   ██║╚════██║
+╚██████╗██║  ██║███████╗██████╔╝██║   ██║   ╚██████╔╝███████║
+ ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝   ╚═╝    ╚═════╝ ╚══════╝"
 #Funciones
 def init()
     puts("#{$limpiar}")
@@ -489,6 +497,8 @@ def seccrack()
         hash()
     when "3"
         combos()
+    when "99"
+        init()    
     else
         seccrack()
     end
@@ -531,13 +541,13 @@ def seccinfo()
         when"1"
             AcercaD()
         when "2"
-            puts "Hola"
+            creditos()
         when "3"
             infoSistem()
         when "4"
-            puts "Hola"
+            help()
         when "5"
-            puts "Hola"
+            seccs()
         else
             seccinfo()
         end
@@ -553,6 +563,50 @@ def AcercaD()
     \tHerramienta oficial de: Team Movistar 
     \n\tEsta herramienta fue creada para la facilitacion de cuentas relacionadas para el Carding y el Bineo"
     print"\n\n --Cualquier tecla para continuar--"
+end
+def creditos()
+    puts"."*200
+    puts"#{$limpiar} #{LOGOCREDITOS}
+     _____ _____ _     
+    |  _  |  _  | |___ 
+    |     |   __| |_ -|
+    |__|__|__|  |_|___|
+                       
+
+    Informacion de BINs: binlist.net
+    Informacion de IP: ipify.org
+    Informacion MAC: macaddress.io
+
+     _____                   
+    |   __|___ _____  __ ___ 
+    |  |  | -_|     ||. |_ -|
+    |_____|___|_|_|_|___|___|
+                         
+
+    Colores del texto (colorize): fazibear con grandiosos contribuidores
+    Informacion de la maquina (tty-platform): Piotr Murach
+    Procesamientos de datos (json): Florian Frank
+    Generador de informacion faltas (faker): Comunidad
+
+     _____     _ _             _                 
+    |  _  |___| |_|___  __ ___|_|___ ___ ___ ___ 
+    |     | . | | |  _||. |  _| | . |   | -_|_ -|
+    |__|__|  _|_|_|___|___|___|_|___|_|_|___|___|
+          |_|                                    
+
+    Phising (Blackeye fork): An0nUD4Y
+    Generador de Emails: pry0cc 
+    Generador de combos: Juni0r007
+
+
+     _____     _           
+    |  _  |_ _| |_ ___ ___ 
+    |     | | |  _| . |  _|
+    |__|__|___| | |___|_|  
+
+
+    Kedap (דנטה)
+    "
 end
 def infoSistem()
     #Informacion de IP
@@ -608,6 +662,15 @@ def infoSistem()
     \tPais de origen: #{macvendedor["countryCode"]}
     \tFecha: #{macdata}"
 end
+def help()
+    puts"Si tienes dudas o sugerencias te puedes contactar con:
+
+    @Kedap_Develop en telegram
+
+    Pero es recomendable que lo hagas aqui: https://github.com/Kedap/Tool-AC/issues" 
+end
 #Inicio de programa
 init()
-#Bro me siento triste :(
+#القصّة جمّرت من شرارة
+#نريد للسّلطة الحاكمة أن تُنفَى
+#من شرارة

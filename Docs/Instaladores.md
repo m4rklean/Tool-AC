@@ -6,13 +6,14 @@ bundle install
 ```
 Y para ejecutar
 ```
-ruby main.rb
+chmod +x main.rb
+./main.rb
 ```
 ## Termux
 En termux se recomienda utilizar la utilizar el [script de instalacion]('/Version de consola/Installers/Linux/Termux.sh')
 y para la facilitacion puedes utilizar este comando (Asumiendo que usted ya tiene cURL instalado en su dispositivo termux):
 ```
-curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/Version%20de%20consola/Installers/Linux/Termux.sh -sSf | sh
+curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/Termux.sh -sSf | sh
 ```
 y sigue con las indicaciones
 ## Script de configuracion
@@ -23,5 +24,7 @@ diseñado para no hacer todos los pasos anteriores, este se encuentra dentro del
 ```
 o bien:
 ```
-curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/Version%20de%20consola/Installers/Linux/Linux.sh -sSf | sh
+curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/Linux.sh -sSf | sh
 ```
+## Windows/MacOS
+En estos sistemas operativos no todas las herramientas se ejecutan ya que estas son diseñadas para linux. Pero en un futuro muy cercano podra haber soporte para estos sistemas operativos, si quieres ayudar a acelerar el proceso lee el README en colaborar
