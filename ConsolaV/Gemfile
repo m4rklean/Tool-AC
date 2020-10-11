@@ -6,14 +6,14 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'colorize', '~> 0.8.1'
 gem 'tty-platform', '~> 0.3.0'
-gem 'ipaddr', '~> 1.2', 
-gem 'macaddr', '~> 1.7', 
+gem 'ipaddr', '~> 1.2'
+gem 'macaddr', '~> 1.7'
 gem 'uri', '~> 0.10.0'
 gem 'http', '~> 4.4'
 gem 'net', '~> 0.3.3'
 gem 'json', '~> 2.3'
-gem 'mechanize', '~> 2.7',
-gem 'ruby-progressbar', '~> 1.10', 
-gem 'nokogiri', '~> 1.10',
+gem 'mechanize', '~> 2.7'
+gem 'ruby-progressbar', '~> 1.10'
+gem 'nokogiri', '~> 1.10'
 gem 'selenium-webdriver', '~> 3.142'
 gem 'faker', '~> 2.14'

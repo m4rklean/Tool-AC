@@ -10,7 +10,7 @@ chmod +x main.rb
 ./main.rb
 ```
 ## Termux
-En termux se recomienda utilizar la utilizar el [script de instalacion]('/Version de consola/Installers/Linux/Termux.sh')
+En termux se recomienda utilizar la utilizar el [script de instalacion](/ConsolaV/Installers/Linux/Termux.sh)
 y para la facilitacion puedes utilizar este comando (Asumiendo que usted ya tiene cURL instalado en su dispositivo termux):
 ```
 curl https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/Termux.sh -sSf | sh
@@ -20,7 +20,7 @@ y sigue con las indicaciones
 El script de configuracion se encarga de descargar y configurar todo para Tool-AC que esta 
 diseñado para no hacer todos los pasos anteriores, este se encuentra dentro del archivo .ZIP en:
 ```
-'Version de consola/Installers/'
+'ConsolaV/Installers/'
 ```
 o bien:
 ```

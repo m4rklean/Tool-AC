@@ -46,6 +46,7 @@ read opc
     gem install ruby-progressbar
     gem install nokogiri
     gem install selenium-webdriver
+    gem install faker
     chmod +x main.rb
     echo "Instalado"
     echo "Ejecuta:"
@@ -108,6 +109,7 @@ read opc
     gem install ruby-progressbar
     gem install nokogiri
     gem install selenium-webdriver
+    gem install faker
     chmod +x main.rb
     echo "Instalado"
     echo "Ejecuta:"
