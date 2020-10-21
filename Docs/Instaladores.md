@@ -7,7 +7,11 @@ bundle install
 Y para ejecutar
 ```
 chmod +x main.rb
-sudo ./main.rb ``` o ```./main.rb``` si esta ejecutando como root
+sudo ./main.rb``` 
+o 
+```./main.rb``` 
+```
+si esta ejecutando como root
 ## Termux
 En termux se recomienda utilizar la utilizar el [script de instalacion](/ConsolaV/Installers/Linux/Termux.sh)
 y para la facilitacion puedes utilizar este comando (Asumiendo que usted ya tiene cURL instalado en su dispositivo termux):
