@@ -1,7 +1,7 @@
 #!/bin/bash
 ########################################################
 #													   #
-#	Instalador v1.0.0-beta para sistemas linux         #
+#	Instalador v1.1.1-beta para sistemas linux         #
 #													   #
 ########################################################
 echo "Elije tu metodo [apt, pacman o yum]"
@@ -20,7 +20,7 @@ echo "                                                       instalador         
 echo "      Que tipo de usuario vas a ser "
 echo ""
 echo "  1) Usuario normal (PC Linux)"
-echo "  2) Desarrollador"
+echo "  2) Desarrollador o tester"
 echo ""
 echo "Digita tu opcion:"
 read opc
@@ -41,17 +41,20 @@ usern()
 	echo "Estas deacuerdo con esto? [S/n]"
 	read ola
 	if [ $ola = "n" ]; then
-		echo "Es de awebo bro :("
+		echo ":: > [1.0]"
+		echo "Es necesario :("
 		exit
 	else
 		echo "Cargando"
 	fi
 	echo "Instalando dependiendo con tu paqueteria"
-	case $pack in "apt") sudo apt-get install ruby && sudo apt-get install bundler;;
-	"pacman") sudo pacman -Sy ruby && sudo pacman -Sy bundler;;
-	"yum") sudo yum install ruby && sudo yum install bundler;;
+	case $pack in "apt") apt-get install ruby bundler;;
+	"pacman") pacman -Sy ruby bundler;;
+	"yum") yum install ruby bundler;;
 	*)
-	echo "No hay soporte, no hay sistema joven";;
+	echo ":: > [1] | [1.3]"
+	echo "Mala opcion"
+	exit;;
 	esac
 	echo "Configurando las carpetas"
 	echo "Purgando..."
@@ -83,32 +86,37 @@ userd()
 	echo "Estas deacuerdo con esto? [S/n]"
 	read ola
 	if [ $ola = "n" ]; then
+		echo ":: > [1.0]"
 		echo "Es de awebo bro :("
 		exit
 	else
 		echo "Cargando"
 	fi
 	echo "Instalando dependiendo con tu paqueteria"
-	case $pack in "apt") sudo apt-get install ruby && sudo apt-get install bundler;;
-	"pacman") sudo pacman -Sy ruby && sudo pacman -Sy bundler;;
-	"yum") sudo yum install ruby && sudo yum install bundler;;
+	case $pack in "apt") apt-get install ruby bundler git;;
+	"pacman") pacman -Sy ruby bundler git;;
+	"yum") yum install ruby bundler git;;
 	*)
-	echo "No hay soporte, no hay sistema joven";;
+	echo ":: > [1] | [1.3]"
+	echo "Mala opcion"
+	exit;;
 	esac
-	echo "Configurando las carpetas"
 	echo "Purgando..."
 	rm -R Tool-AC
-	echo "Instalando"
-	mkdir Tool-AC
-	cd Tool-AC
-	#ingresar link valido
-	wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
-	unzip Tool-AC_1.1.0-beta.zip;	
+	echo "Extrayendo codigo fuente desde el repositorio"
+	git clone https://github.com/Kedap/Tool-AC;
+	cd Tool-AC/ConsolaV/;
+	echo "Cambiando a la rama de desarrollador"
+	git switch develop
 	echo "instalando gemas"
 	bundle install
+	gem install tty-platform
 	chmod +x main.rb
-	echo "Troyano instalado con exito, para potenciarlo ejecuta:"
-	echo "'ruby Tool-AC/codigo.rb'"
+	echo "Instalado!"
+	echo "Para abrir ejecuta:"
+	echo "'Tool-AC/ConsolaV/main.rb'"
+	echo "Recuerda que si vez una anomalia no dudes en comentarla en:"
+	echo "https://github.com/Kedap/Tool-AC/issues"
 }
 
 #separador
@@ -116,6 +124,7 @@ userd()
 case $opc in "1") usern $pack;;
 "2") userd $pack;;
 *)
-echo "No bro..."
+echo ":: > [1]"
+echo "Vuelve a intentar"
 esac
 

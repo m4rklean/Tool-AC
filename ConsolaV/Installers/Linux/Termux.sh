@@ -1,3 +1,9 @@
+########################################################
+#                                                      #
+#   Instalador v1.1.0-beta para Termux                 #
+#                                                      #
+########################################################
+clear
 echo "                     ┏━━━━┓━━━━━━━━┏┓━━━━━━┏━━━┓┏━━━┓"
 echo "                     ┃┏┓┏┓┃━━━━━━━━┃┃━━━━━━┃┏━┓┃┃┏━┓┃"
 echo "                     ┗┛┃┃┗┛┏━━┓┏━━┓┃┃━━━━━━┃┃━┃┃┃┃━┗┛"
@@ -9,15 +15,15 @@ echo "                     ━━━━━━━━━━━━━━━━━�
 echo "                                                       instalador (Termux)                                           "
 echo "      Que tipo de usuario vas a ser "
 echo ""
-echo "  1) Usuario normal (Android termux)"
-echo "  2) Desarrollador"
+echo "  1) Usuario normal"
+echo "  2) Desarrollador o tester"
 echo ""
 echo "Digita tu opcion:"
 read opc
 
 #funciones
- usern()
- {
+usern()
+{
     echo "Se instalaran o actualizaran las siguientes dependencias"
 	echo "Ruby"
     echo "PHP"
@@ -28,6 +34,7 @@ read opc
 	echo "Estas deacuerdo con esto? [S/n]"
 	read ola
     if [ $ola = "n" ]; then
+        echo ":: > [1.0]"
 		echo "Es de awebo bro :("
 		exit
 	else
@@ -39,7 +46,12 @@ read opc
     pkg install unzip
     echo "Instalando wget"
     pkg install wget
-    echo "Instalando Tool-AC"
+    echo "Purgando..."
+    rm -R Tool-AC
+    echo "Creando carpeta"
+    mkdir Tool-AC
+    cd Tool-AC
+    echo "Descargando Tool-AC"
     wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
     unzip Tool-AC_1.1.0-beta.zip;   
     echo "Instalando gemas..."
@@ -59,11 +71,11 @@ read opc
     chmod +x main.rb
     echo "Instalado"
     echo "Ejecuta:"
-    echo "ruby main.rb"
- }
+    echo "Tool-AC/main.rb"
+}
 
- userd()
- {
+userd()
+{
     echo "Se instalaran o actualizaran las siguientes dependencias"
 	echo "Ruby"
     echo "Vim"
@@ -77,6 +89,7 @@ read opc
 	echo "Estas deacuerdo con esto? [S/n]"
 	read ola
     if [ $ola = "n" ]; then
+        echo ":: > [1]"
 		echo "Es de awebo bro :("
 		exit
 	else
@@ -102,18 +115,22 @@ read opc
     if [[ $arch == *'arm'* ]] || [[ $arch2 == *'Android'* ]] ; then
         wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip > /dev/null 2>&1
 
-    if [[ -e ngrok-stable-linux-arm.zip ]]; then
+    elif [[ -e ngrok-stable-linux-arm.zip ]]; then
         unzip ngrok-stable-linux-arm.zip > /dev/null 2>&1
         chmod +x ngrok
         rm -rf ngrok-stable-linux-arm.zip
     else
+        echo ":: > [2.2]"
         printf "\e[1;93m[!] Download error... Termux, run:\e[0m\e[1;77m pkg install wget\e[0m\n"
         exit 
     fi
 
-    echo "Descargando Tool-AC"
-    wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
-    unzip Tool-AC_1.1.0-beta.zip;   
+    
+    echo "Clonando desde el repositorio"
+    git clone https://github.com/Kedap/Tool-AC; 
+    cd Tool-AC/ConsolaV/;
+    echo "Cambiando a la rama de desarrollo (develop)"
+    git switch develop 
     echo "Instalando gemas..."
     gem install colorize
     gem install tty-platform
@@ -131,11 +148,16 @@ read opc
     chmod +x main.rb
     echo "Instalado"
     echo "Ejecuta:"
-    echo "ruby main.rb"
+    echo "Tool-AC/ConsolaV/main.rb"
+    echo "Recuerda que si vez alguna anomalia puedes reportarla en:"
+    echo "https://github.com/Kedap/Tool-AC/issues"
 }
+
+# Separador
 
 case $opc in "1") usern ;;
 "2") userd ;;
 *)
-echo "No bro..."
+echo ":: > [1]"
+echo "Vuelve a intentar"
 esac
