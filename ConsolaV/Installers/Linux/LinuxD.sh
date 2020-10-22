@@ -1,7 +1,7 @@
 #!/bin/bash
 ########################################################
 #													   #
-#	Instalador v1.1.0-beta para sistemas linux         #
+#	Instalador v1.1.1-beta para sistemas linux         #
 #													   #
 ########################################################
 echo "Elije tu metodo [apt, pacman o yum]"
@@ -106,8 +106,11 @@ userd()
 	echo "Extrayendo codigo fuente desde el repositorio"
 	git clone https://github.com/Kedap/Tool-AC;
 	cd Tool-AC/ConsolaV/;
+	echo "Cambiando a la rama de desarrollador"
+	git switch develop
 	echo "instalando gemas"
 	bundle install
+	gem install tty-platform
 	chmod +x main.rb
 	echo "Instalado!"
 	echo "Para abrir ejecuta:"
