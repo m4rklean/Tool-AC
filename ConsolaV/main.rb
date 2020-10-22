@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-#Version 1.1.0-beta: 1- Script version, 1- Entrono facil, 0- Correccion
+#Version 1.1.0-beta: 1- Script version, 1- Entrono facil, 0- Commit
 
 ########################################################
 ##                                                    ##
@@ -29,16 +29,16 @@ require 'json'
 $platform = TTY::Platform.new
 
 #Variables de texto
-msgran = ["v1.1-alpha","Hola gamer", "Esta va para el admin .|.", "msgdon.sample","Power by #TeamMovistar",
+msgran = ["v1.1-beta","Hola gamer", "Esta va para el admin .|.", "msgdon.sample","Power by #TeamMovistar",
 "All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico",
 "SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños","2.2",
 "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","T I E M P O O ! ! !",
-"Bebesita bebelin","Hello Moto","Boca sho te amo","Star <3","Obsidian", "No hay chiste",
+"Bebesita bebelin","Hello Moto","Boca sho te amo",":(","Obsidian", "No hay chiste","I love E",
 "Don't worry, be happy"," ","D n E","No hay sistema joven","Hola wap@","Una troca salio de durango...",
 "Al toke mi rey","En efecto compañero","Esta va para el que lo lea <3","[Mensaje random]", "RubRub?",
 "Puto el que lo lea","Un saludo para toda la banda","Un saludo para la grasa","Hey sister, nice clitoris",
 "SOFTWARE LIBRE","El original","Con linki park de fondo","Un tal Emilio esta leyendo esto, un saludo ;)",
-"Echale ganas mijo","The time change :(","نريد التغيير!"]
+"Echale ganas mijo","Ojos color sol","نريد التغيير!"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
@@ -494,7 +494,7 @@ def seccrack()
     when "1"
         proxy()
     when "2"
-        hash()
+        hash5() #no dejar como hash() puede causar errores
     when "3"
         combos()
     when "99"
@@ -521,8 +521,9 @@ def proxy()
     #{lista}"
     print"-- ENTER para continuar --"
     h = gets
+    seccrack()
 end
-def hash()
+def hash5()
     puts "https://md5hashing.net/"
     print"-- ENTER para continuar --"
     h = gets
