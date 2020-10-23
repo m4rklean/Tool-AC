@@ -559,7 +559,7 @@ def AcercaD()
     puts $limpiar
     puts "#{ACERCAD}"
     puts "\n\n\n\t\t Tool Acuont Cracking (Tool-AC). \n\t\t Repositorio: https://github.com/kedap/Tool-AC
-    \n\tAutor v1.1-alpha: Kedap (דנטה)
+    \n\tAutor v1.1-beta: Kedap (דנטה)
     \tPara: Team Movistar
     \tHerramienta oficial de: Team Movistar 
     \n\tEsta herramienta fue creada para la facilitacion de cuentas relacionadas para el Carding y el Bineo"
