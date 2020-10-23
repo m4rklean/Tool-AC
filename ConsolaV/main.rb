@@ -424,7 +424,7 @@ end
 def phishing()
     puts"Puedes conocer las acciones que realizar el script en:
     localhost:4040 o 127.0.0.1:4040"
-    print "-- Cualquier tecla para continuar --"
+    print "-- ENTER para continuar --"
     h = gets
     puts"#{$limpiar}"
     puts "\t\t\tBLACKEYE v1.5 BY: An0nUD4Y"
@@ -481,14 +481,14 @@ def idp()
     \tAño: #{Faker::Vehicle.year}
     \tLicense plate: #{Faker::Vehicle.license_plate }
 
-    -- Cualquier tecla para continuar --"
+    -- ENTER para continuar --"
     h = gets
     seccard()
 end
 #Separador del cracktools
 def seccrack()
     puts "#{$limpiar} #{LOGOCRACK} #{MENUCRACK}"
-    print "Escribe tu opcion: "
+    print "\nEscribe tu opcion: "
     opc = gets.chomp
     case (opc)
     when "1"
@@ -527,6 +527,7 @@ def hash5()
     puts "https://md5hashing.net/"
     print"-- ENTER para continuar --"
     h = gets
+    seccrack()
 end
 def combos()
     puts"Es necesario utilizar VPN para ejecutar este programa, enter cuando estes listo"
@@ -563,7 +564,7 @@ def AcercaD()
     \tPara: Team Movistar
     \tHerramienta oficial de: Team Movistar 
     \n\tEsta herramienta fue creada para la facilitacion de cuentas relacionadas para el Carding y el Bineo"
-    print"\n\n --Cualquier tecla para continuar--"
+    print"\n\n --ENTER para continuar--"
 end
 def creditos()
     puts"."*200
