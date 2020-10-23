@@ -17,15 +17,16 @@ O si estas ejecutando como root:
 En termux se recomienda utilizar la utilizar el [script de instalacion](/ConsolaV/Installers/Linux/Termux.sh)
 y para la facilitacion puedes utilizar este comando (Asumiendo que usted ya tiene cURL instalado en su dispositivo termux):
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/Termux.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/Termux.sh)"
 ```
-y sigue con las indicaciones
+Este varia si lo ejecutas como root, en este caso no hace falta el ```sudo```y sigue con las indicaciones
 ## Script de configuracion
 El script de configuracion se encarga de descargar y configurar todo para Tool-AC que esta 
 diseñado para no hacer todos los pasos anteriores.
 Solo ejecuta:
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/LinuxD.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kedap/Tool-AC/master/ConsolaV/Installers/Linux/LinuxD.sh)"
 ```
+Este varia si lo ejecutas como root, en este caso no hace falta el ```sudo```
 ## Windows/MacOS
 En estos sistemas operativos no todas las herramientas se ejecutan ya que estas son diseñadas para linux. Pero en un futuro muy cercano podra haber soporte para estos sistemas operativos, si quieres ayudar a acelerar el proceso lee el [README](/README.md) en colaborar

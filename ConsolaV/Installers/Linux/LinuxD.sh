@@ -66,8 +66,9 @@ usern()
 	wget https://github.com/Kedap/Tool-AC/releases/download/Beta/Tool-AC_1.1.0-beta.zip;
 	unzip Tool-AC_1.1.0-beta.zip;
 	bundle install
+	gem install tty-platform
 	chmod +x main.rb
-	echo "Troyano instalado con exito, para potenciarlo ejecuta:"
+	echo "Instalado con exito!!!. Para iniciar ejecuta:"
 	echo "Tool-AC/main.rb"
 }
 
