@@ -12,7 +12,6 @@ $limpiar = "\e[H\e[2J"
 puts("#{$limpiar}")
 puts("Cargando...")
 
-
 #dependencias (gemas)
 require 'colorize'
 require 'tty-platform'
@@ -42,8 +41,20 @@ msgran = ["v1.1-beta","Hola gamer", "Esta va para el admin .|.", "msgdon.sample"
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
-$ip = Net::HTTP.get(URI("https://api.ipify.org"))
 $mac = Mac.addr
+
+#Icono de error
+$err = "::".colorize(:red)
+
+#Checando coneccion a internet y obtener direccion IP
+
+begin
+    $ip = Net::HTTP.get(URI("https://api.ipify.org"))
+rescue Exception => e
+    puts "#{$err}> [1.0]\nPor: #{e.message}\nLas herramientas no se ejecutaran correctamente"
+    $ip = "No Disponible"
+    sleep 4
+end
 
 LOGO = "
                      ┏━━━━┓━━━━━━━━┏┓━━━━━━┏━━━┓┏━━━┓
@@ -164,11 +175,18 @@ def sepa(opc)
         seccrack()
     when "4"
         seccinfo()
-	h = gets.chomp
-    init()
+	    h = gets.chomp
+        init()
     when "99"
-        puts("\nSPAM "* 35)
+        puts("\nSPAM "* 50)
         exit
+    when "exit"
+        puts "Ok..."
+        exit
+    else
+        puts "#{$err} > [2]\nIntenta de nuevo"
+        sleep 3
+        init()
     end
 end
 
@@ -198,9 +216,13 @@ def seccs()
         init()
     when "100"
         checkc()
+    when "exit"
+        puts "Ok..."
+        exit
     else
-        puts("Error 1")
-        init()
+        puts "#{$err} > [2]\nIntenta de nuevo"
+        sleep 3
+        seccs()
     end
 end
 def gencc()
@@ -410,8 +432,12 @@ def seccard()
             idp()
         when "99"
             init()
+        when "exit"
+            puts "Ok..."
+            exit
         else
-            puts "Incorrecto pana"
+            puts "#{$err} > [2]\nIntenta de nuevo"
+            sleep 3
             seccard()
         end
     def phising()
@@ -498,9 +524,14 @@ def seccrack()
     when "3"
         combos()
     when "99"
-        init()    
+        init()
+    when "exit"
+        puts "Ok..."
+        exit
     else
-        seccrack()
+        puts "#{$err} > [2]\nIntenta de nuevo"
+        sleep 3
+        seccard()
     end
 end
 #Lista de proxys
@@ -550,7 +581,12 @@ def seccinfo()
             help()
         when "5"
             seccs()
+        when "exit"
+            puts "Ok..."
+            exit
         else
+            puts "#{$err} > [2]\nIntenta de nuevo"
+            sleep 3
             seccinfo()
         end
 end
@@ -560,7 +596,7 @@ def AcercaD()
     puts $limpiar
     puts "#{ACERCAD}"
     puts "\n\n\n\t\t Tool Acuont Cracking (Tool-AC). \n\t\t Repositorio: https://github.com/kedap/Tool-AC
-    \n\tAutor v1.1-alpha: Kedap (דנטה)
+    \n\tAutor v1.1-beta: Kedap (דנטה)
     \tPara: Team Movistar
     \tHerramienta oficial de: Team Movistar 
     \n\tEsta herramienta fue creada para la facilitacion de cuentas relacionadas para el Carding y el Bineo"
