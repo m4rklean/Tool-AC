@@ -49,13 +49,15 @@ usern()
 	fi
 	echo "Instalando dependiendo con tu paqueteria"
 	case $pack in "apt") apt-get install ruby bundler;;
-	"pacman") pacman -Sy ruby bundler;;
-	"yum") yum install ruby bundler;;
+	"pacman") pacman -S ruby ;;
+	"yum") yum install ruby ;;
 	*)
 	echo ":: > [1] | [1.3]"
 	echo "Mala opcion"
 	exit;;
 	esac
+	echo "Instalando bundler
+	gem install bundler
 	echo "Configurando las carpetas"
 	echo "Purgando..."
 	rm -R Tool-AC
@@ -95,13 +97,15 @@ userd()
 	fi
 	echo "Instalando dependiendo con tu paqueteria"
 	case $pack in "apt") apt-get install ruby bundler git;;
-	"pacman") pacman -Sy ruby bundler git;;
-	"yum") yum install ruby bundler git;;
+	"pacman") pacman -S ruby git;;
+	"yum") yum install ruby git;;
 	*)
 	echo ":: > [1] | [1.3]"
 	echo "Mala opcion"
 	exit;;
 	esac
+	echo "Instalando bundler"
+	gem install bundler
 	echo "Purgando..."
 	rm -R Tool-AC
 	echo "Extrayendo codigo fuente desde el repositorio"
