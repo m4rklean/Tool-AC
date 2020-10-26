@@ -88,12 +88,12 @@ userd()
 	echo "Gema json"
 	echo "Estas deacuerdo con esto? [S/n]"
 	read ola
-	if [ $ola = "n" ]; then
-		echo ":: > [1.0]"
-		echo "Es de awebo bro :("
-		exit
+	if [ $ola = "n" ]; 
+		then echo ":: > [1.0]";
+		echo "Es necesario :(";
+		exit;
 	else
-		echo "Cargando"
+		echo "Cargando";
 	fi
 	echo "Instalando dependiendo con tu paqueteria"
 	case $pack in "apt") apt-get install ruby bundler git;;
