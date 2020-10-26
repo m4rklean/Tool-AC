@@ -73,7 +73,7 @@ LOGOCCS ="
 \t\t\t▒▒      ▒▒          ▒▒▒▒▒▒▒
 \t\t\t▓▓      ▓▓               ▓▓
 \t\t\t ██████  ██████     ███████ "
-MENUC= "
+MENUC= " 
 \n Escoje una opcion del menu
 \n \t1) Extrapolacion de bins
 \t2) Informacion de un bin
