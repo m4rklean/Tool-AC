@@ -649,7 +649,15 @@ end
 def infoSistem()
     #Informacion de IP
     puts "Obteniendo datos de direccion IP..."
-    uri = URI.parse("https://geo.ipify.org/api/v1?apiKey=at_zHp76XWLxoXxj9FwoEs76ZCs7lTnn&ipAddress=#{$ip} ")
+    
+    #Error en caso de que no haya una coneccion a internet
+    begin
+        uri = URI.parse("https://geo.ipify.org/api/v1?apiKey=at_zHp76XWLxoXxj9FwoEs76ZCs7lTnn&ipAddress=#{$ip} ")
+    rescue Exception => e
+        puts "#{$err} > [1.0 | 1.0.1]\nPor: #{e.message}\nAl parecer no tienes internet. No se puede obtener informacion de informacion IP"
+        sleep 3
+        seccinfo()
+    end
     request = Net::HTTP::Get.new(uri)
 
     req_options = {
