@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-#Version 1.1.0-beta: 1- Script version, 1- Entrono facil, 0- Commit
+#Version 1.1.1-beta: 1- Script version, 1- Entrono facil, 1- Commit Errores
 
 ########################################################
 ##                                                    ##
@@ -28,7 +28,7 @@ require 'json'
 $platform = TTY::Platform.new
 
 #Variables de texto
-msgran = ["v1.1-beta","Hola gamer", "Esta va para el admin .|.", "msgdon.sample","Power by #TeamMovistar",
+msgran = ["v1.1.1-beta","Hola gamer", "Esta va para el admin .|.", "msgdon.sample","Power by #TeamMovistar",
 "All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico",
 "SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños","2.2",
 "Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","T I E M P O O ! ! !",
@@ -37,7 +37,7 @@ msgran = ["v1.1-beta","Hola gamer", "Esta va para el admin .|.", "msgdon.sample"
 "Al toke mi rey","En efecto compañero","Esta va para el que lo lea <3","[Mensaje random]", "RubRub?",
 "Puto el que lo lea","Un saludo para toda la banda","Un saludo para la grasa","Hey sister, nice clitoris",
 "SOFTWARE LIBRE","El original","Con linki park de fondo","Un tal Emilio esta leyendo esto, un saludo ;)",
-"Echale ganas mijo","Ojos color sol","نريد التغيير!"]
+"Echale ganas mijo","Ojos color sol","نريد التغيير!","EZNL ★"]
 hora =  Time.now.strftime("%R")
 OSV = $platform.version
 OS = $platform.os
@@ -208,6 +208,8 @@ def seccs()
     when "4"
         #checkc(), esta en fase de desarrollo
         puts"Esta funcion se encuentra en desarrollo"
+        sleep 2
+        seccs()
     when "5"
         todoc()
     when "6"
@@ -259,17 +261,25 @@ end
 def provi()
     puts("Ingresa el bin que deseas obtener informacion")
     bin =  gets.chomp
-    puts("Obtenteniendo informacion...")
-    uri = URI.parse("https://lookup.binlist.net/#{bin}")
-    request = Net::HTTP::Get.new(uri)
-    request["Accept-Version"] = "3"
-
-    req_options = {
-        use_ssl: uri.scheme == "https",
-    }
-
-    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-        http.request(request)
+    puts("Obteniendo informacion...")
+    #Comprobando coneccion con la API
+    begin
+        uri = URI.parse("https://lookup.binlist.net/#{bin}")
+        request = Net::HTTP::Get.new(uri)
+        request["Accept-Version"] = "3"
+        
+        req_options = {
+          use_ssl: uri.scheme == "https",
+        }
+        
+        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+          http.request(request)
+        end
+        
+    rescue Exception => e
+        puts"#{$err}> [1.0]\nPor #{e.message}\nNo se pudo establecer conexion con las API de binlist.net"
+        sleep 3
+        seccs()
     end
     info = JSON.parse(response.body)
     bank = info["bank"]
@@ -596,7 +606,7 @@ def AcercaD()
     puts $limpiar
     puts "#{ACERCAD}"
     puts "\n\n\n\t\t Tool Acuont Cracking (Tool-AC). \n\t\t Repositorio: https://github.com/kedap/Tool-AC
-    \n\tAutor v1.1-beta: Kedap (דנטה)
+    \n\tAutor v1.1.1-beta: Kedap (דנטה)
     \tPara: Team Movistar
     \tHerramienta oficial de: Team Movistar 
     \n\tEsta herramienta fue creada para la facilitacion de cuentas relacionadas para el Carding y el Bineo"
