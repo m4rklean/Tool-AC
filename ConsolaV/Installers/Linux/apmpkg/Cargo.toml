@@ -1,0 +1,11 @@
+[package]
+name = "apmpkg"
+version = "1.1.1-beta"
+authors = ["kedap <dxhqezk@hi2.in>"]
+edition = "2018"
+description = "Multi-Herramientas para la obtencion o creacion de cuentas"
+repository = "https://github.com/kedap/tool-ac/"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+read_input = "0.8"
