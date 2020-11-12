@@ -465,7 +465,13 @@ def phishing()
     puts"#{$limpiar}"
     puts "\t\t\tBLACKEYE v1.5 BY: An0nUD4Y"
     puts"\n"
-    system("bash commands.sh 0")
+    begin
+      system("bash commands.sh 0")
+    rescue Exception => e
+      puts "#{$err}> [3.0]\nPor: #{e.message}\nAl parecer hubo un error fuera de `main.rb`"
+      sleep 3
+      seccard()
+    end
 end
 
 def spama()
