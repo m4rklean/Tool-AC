@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # Esto es un binario
 #
-# Esto de preferencia deberia estar en la carpeta /opt junto a las demas carpetas
-# si no coloca la ruta en donde colocaras las carpetas
+# Esto de preferencia debe estar en la carpeta /opt junto a las demas carpetas
+# si esta en la ruta en donde se recomienda entonces modifica esto
 #
 
 require 'pathname'
@@ -10,18 +10,17 @@ require 'pathname'
 begin
 
 	root = Pathname.pwd
-	core = root + "core/" # core = Pathname.new("/ruta/customizada/yes")
-	libs = root + "libs/" # libs = Pathname.new("/ruta/customizada/yes")
+	core = root + "core/" # core = Pathname.new("/ruta/customizada/core/")
+	libs = root + "libs/" # libs = Pathname.new("/ruta/customizada/libs/")
 	puts "[*] Cargando..."
 	bmain = File.exist?(core + "main.rb")
 	if bmain == true
-		$LOAD_PATH << core
-		require 'main.rb'
+		require core + 'main.rb'
 	else
 		puts "Ocurrio un error al leer el archivo main.rb en la ruta #{core}"
 		exit
 	end
 rescue Interrupt
-	puts "Abortando..."
+	puts "\n[-] Abortando..."
 	exit(1)
 end

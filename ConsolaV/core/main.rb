@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 #Version 1.1.1-beta: 1- Script version, 1- Entrono facil, 1- Commit Errores
 
 ########################################################
@@ -88,8 +86,8 @@ MENUC= "
 \n \t1) Informacion de un bin
 \t2) Gen CC's apartir de un bin
 \t3) Checker
-\t4) Ejecutar todos en el siguiente orden: 1,2,3 y 4
-\t5) Verificacion de luhn
+\t4) Verificacion de luhn
+\t5) Ejecutar todos en el siguiente orden: 1,2 y 4
 \t99) Menu principal"
 LOGOCARD = '
         ______                          __ __
@@ -202,18 +200,16 @@ def seccs()
     when"2"
         gencc()
     when "3"
-        #checkc(), esta en fase de desarrollo
-        puts"Esta funcion se encuentra en desarrollo"
+        #checkc(), esta en fase de desarrollo (es una posible colaboracion con https://shadowchk.com/)
+        puts"Esta funcion se encuentra en desarrollo, es posible que tengamos soporte con shadowchk.com"
         sleep 2
         seccs()
-    when "4"
-        todoc()
     when "5"
+        todoc()
+    when "4"
         luhncc()
     when "99"
         init()
-    when "100"
-        checkc()
     when "exit"
         puts "Ok..."
         exit
@@ -236,27 +232,37 @@ def gencc()
         sleep 2
         gencc()
     end
-    cifras = bin.length;$faltan = 16 - cifras; $i = 1; $t = 0
+    cifras = bin.length;faltan = 16 - cifras;$i = 0
+    puts "[*] Generando CC's...\n\n\t--==[ CC gen de Tool-AC ]==--"
+    puts ""
 
-    #generando las cc's necesarias
-    while $t <= $cantidad
-        #generando las cc's
-        while $i <= $faltan
+    #generando todas las cc's
+    while $i <= $cantidad
+        cc = bin
+        t = 0
+        loop do
+            t = t + 1
             num = rand(9)
             num = num.to_s
-            $cc = bin
-            $cc = $cc + num
-            $i = $i + 1
+            cc = cc + num
+            if t == faltan
+                break
+            end
         end
-        puts "#{$cc};#{fecha};#{cvv}"
-        $t = $t + 1
+        puts "#{cc};#{fecha};#{cvv}"
+        $i = $i + 1
     end
-    puts "listo"
+    print "\n--ENTER para continuar--"; h = gets
+    if $todo == true
+        luhncc()
+    else
+        seccs()
+    end
 end
 def provi()
     puts("Ingresa el bin que deseas obtener informacion")
     print "BIN => "; bin =  gets.chomp
-    puts("Obteniendo informacion...")
+    puts("\n[*] Obteniendo informacion...")
     #Comprobando coneccion con la API
     begin
         uri = URI.parse("https://lookup.binlist.net/#{bin}")
@@ -280,49 +286,30 @@ def provi()
     bank = info["bank"]
     pais = info["country"]
     puts ("
+
+    \t--==[ Informacion del BIN => #{bin} ]==--\n
     Tipo de empresa: #{info["scheme"]}
     Tipo: #{info["type"]}
     Marca: #{info["brand"]}
     Prepago: #{info["prepaid"]}
     Pais: #{pais["name"]}  #{pais["alpha2"]} #{pais["currency"]}
     Banco: #{bank["name"]}  #{bank["url"]} #{bank["city"]} #{bank["phone"]}
-
     ")
-    no = gets.chomp
-    if $seccioncc == true
+    print "\n--ENTER para continuar--";no = gets.chomp
+    if $todo == true
         gencc()
     else
         seccs()
     end
 end
 def todoc()
-    puts("Ejecutando...")
-    $seccioncc = true
-    extra()
-end
-def checkc()
-    puts("Ingresa la cc que quieres checar")
-    print("[cc]>> ")
-    cc = gets.chomp
-    #Codigo del generador de emails https://github.com/navisecdelta/EmailGen
-    require './libs/Emailgen/EmailGen.rb'
-    puts "Borrando lista de Emails anteriores."
-    if File.exist?("./correos.txt")
-        File.delete("./correos.txt")
-    else
-        puts "..."
-    end
-    puts "Generando emails..."
-    mailgen()
-    puts "Leyendo la lista de emails ..."
-    lista = File.read("./correos.txt")
-    lista = lista.split("\n")
-    puts "Correo a utilizar es: #{lista[0]}"
+    puts("[+] Ejecutando todas las opciones...")
+    $todo = true
+    provi()
 end
 def luhncc()
-    puts "Verificacion de luhn o de modulo 10"
-    print "\nCC que quieras verificar: "
-    cc = gets.chomp.chars
+    puts "Verificacion de luhn o de modulo 10, a continuacion coloca la CC que quieres verificar"
+    print "\nCC => ";cc = gets.chomp.chars
     pares = [0,"1",2,"3",4,"5",6,"7",8,"9",10,"11",12,"13",14,"15"]
     multil0 = []
     multil1 = []
@@ -366,7 +353,7 @@ def luhncc()
         puts "Intenta colocar #{falta} como la ultima cifra"
     end
 
-    print "No viste nada? Intenta instalar y/o configurar unicode"
+    print "No viste nada? Intenta instalar y/o configurar unicode\n\n--ENTER para continuar--"
     h = gets
     seccs()
 end
@@ -391,18 +378,12 @@ def seccard()
             puts "#{$err} > [2]\nIntenta de nuevo"
             sleep 3
             seccard()
-        end
-    def phising()
-        #Phishing by @suljot_gjoka & @thelinuxchoice (blakeye)
-        puts "Ejecutando phishing"
-
     end
 end
 
 def phishing()
-    puts"Puedes conocer las acciones que realizar el script en:
-    localhost:4040 o 127.0.0.1:4040"
-    print "-- ENTER para continuar --"
+    puts"Puedes conocer las acciones que realizar el script en:\nlocalhost:4040 o 127.0.0.1:4040"
+    print "\n-- ENTER para continuar --"
     h = gets
     puts"#{$limpiar}"
     puts "\t\t\tBLACKEYE v1.5 BY: An0nUD4Y"
@@ -418,15 +399,14 @@ end
 
 def spama()
     #Necesario python 2
-    puts "Necesitas crear el correo (Contenido) en un .txt o .html
-    Es recomendable que tengas una cuenta de www.smtp2go.com ya que la cuenta por defecto es posbile que no funciones
-    Una vez que tengas esto presiona cualquier tecla"
+    puts "Necesitas crear el correo (Contenido) en un .txt o .html es recomendable que tengas una cuenta de www.smtp2go.com ya que la cuenta por defecto es posbile que no funciones
+    --Una vez que tengas esto presiona ENTER para continuar--"
     h = gets
     system("bash commands.sh 1")
 end
 
 def idp()
-    puts "Generando datos..."
+    puts "[*] Generando datos..."
     puts"#{$limpiar}
     \t\t--==[ Datos ]==--
 
@@ -465,7 +445,7 @@ def idp()
     \tAño: #{Faker::Vehicle.year}
     \tLicense plate: #{Faker::Vehicle.license_plate }
 
-    -- ENTER para continuar --"
+    --ENTER para continuar--"
     h = gets
     seccard()
 end
@@ -495,10 +475,10 @@ end
 #Lista de proxys
 def proxy()
     puts"\nQue tipo de proxy quieres? [http/Socks4]"
-    tipo = gets.chomp
+    print "TIPO =>";tipo = gets.chomp
     puts"Ingresa el codigo del pais que deseas la lista. Por ejemplo US"
-    codigo = gets.chomp
-    puts "Generando lista..."
+    print "PAIS => ";codigo = gets.chomp
+    puts "[*] Generando lista..."
 
     #Generando:
 
@@ -508,14 +488,58 @@ def proxy()
 
     puts"Lista de proxys
     #{lista}"
-    print"-- ENTER para continuar --"
+    print"\n-- ENTER para continuar --"
     h = gets
     seccrack()
 end
 def hash5()
-    puts "https://md5hashing.net/"
-    print"-- ENTER para continuar --"
-    h = gets
+    puts "Puede que la api que se utiliza por defecto ya sea baneada, crea tu KEY personal en hashes.org con una cuenta"
+    puts "\nElije una opcion:\n1) Utilizar tu KEY personal (recomendada)\n2) Utilizar la KEY por defecto (para nada recomendable)"
+    print "\nTu opcion: ";opc = gets.chomp
+    case(opc)
+        when "1"
+            puts"Coloca tu KEY personal"
+            print "KEY => "; key = gets.chomp # password de too-ac en hashes Kpq4t7vOQRyJcsl3HU0F
+        when "2"
+            print"Si esta no funciona que es lo mas probable prueba con la otra opcion"
+            key = "eqbX63JYIH0KiyyH0rNE3QFG8Bozyf"
+        else
+            puts "#{$err} > [2]\nIntenta de nuevo"
+            sleep 3
+            hash5()
+    end
+    puts "\n[+] KEY => #{key}..."
+    puts "Coloca el hash que quieres crackear"
+    print"\nHASH => "; has = gets.chomp
+    puts "[*] Obteniendo informacion..."
+
+    # Comprobando conexion con hashes.org
+    begin
+        uri = URI.parse("https://hashes.org/api.php?key=#{key}&query=#{has}")
+        response = Net::HTTP.get_response(uri)
+    rescue Exception => e
+        puts "#{$err}> [1.0]\nPor: #{e.message}"
+        sleep 2
+        hash5()
+    end
+    output = JSON.parse(response.body)
+
+    #Checando si se encontro
+    status = output["status"]
+    correcto = "Encontado".colorize(:green)
+    resultado = output["result"]
+    resultado = resultado[has]
+    begin
+        puts"\n\n\t--==[ Resultados de HASH => #{has} ]==--
+    \n\tHash encontrado/crackeado: #{correcto}
+        Texto plano: #{resultado["plain"]}
+        Texto hexadecimal: #{resultado["hexplain"]}
+        Tipo de hash/algoritmo: #{resultado["algorithm"]}"
+    rescue Exception => e
+        correcto = "No encontrado".colorize(:red)
+        puts "Estado del hash: #{correcto}"
+    end
+    print"\n-- ENTER para continuar --";h = gets
     seccrack()
 end
 def combos()
@@ -603,6 +627,7 @@ def creditos()
 
     Kedap (דנטה)
     "
+    print"--ENTER para continuar--"; h = gets
 end
 def infoSistem()
     #Informacion de IP
@@ -665,6 +690,7 @@ def infoSistem()
     \tDireccion de la compania: #{macvendedor["companyAddress"]}
     \tPais de origen: #{macvendedor["countryCode"]}
     \tFecha: #{macdata}"
+    print"--ENTER para continuar--"; h = gets
 end
 def help()
     puts"Si tienes dudas o sugerencias te puedes contactar con:
