@@ -6,9 +6,9 @@
 #
 
 require 'pathname'
+require 'colorize'
 
 begin
-
 	root = Pathname.pwd
 	core = root + "core/" # core = Pathname.new("/ruta/customizada/core/")
 	libs = root + "libs/" # libs = Pathname.new("/ruta/customizada/libs/")
@@ -18,9 +18,9 @@ begin
 		require core + 'main.rb'
 	else
 		puts "Ocurrio un error al leer el archivo main.rb en la ruta #{core}"
-		exit
+		exit(1)
 	end
 rescue Interrupt
-	puts "\n[-] Abortando..."
+	puts "\n#{"[-] Abortando...".red()}"
 	exit(1)
 end

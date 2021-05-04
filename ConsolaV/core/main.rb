@@ -1,4 +1,4 @@
-#Version 1.1.1-beta: 1- Script version, 1- Entrono facil, 1- Commit Errores
+#Version 1.2.0: 1- Script version, 2- Optimizacion de codigo, 0- Commit Errores
 
 ########################################################
 ##                                                    ##
@@ -6,88 +6,35 @@
 ## Kedap דנטה.Team Movistar                           ##
 ##                                                    ##
 ########################################################
-$limpiar = "\e[H\e[2J"
 
-#dependencias (gemas)
+#dependencias 
+require 'pathname'
 require 'colorize'
 require 'tty-platform'
 require 'macaddr'
 require 'faker'
 require 'pathname'
-
-
-#cURL -H
 require 'net/http'
 require 'uri'
 require 'json'
-
-#Clases de dependencias
-$platform = TTY::Platform.new
-
-#Variables de texto
-msgran = ["v1.1.1-beta","Hola gamer", "Esta va para el admin .|.", "msgdon.sample","Power by #TeamMovistar",
-"All you need is love, all you need is hope","Hey bro, nice dick","F","11","NO!","Hecho en Mexico",
-"SIIIIIII!","Sin miedo al exito","ReadOS <3","Cambiate a movistar plz","Feliz cumpleaños","2.2",
-"Alse try evil-sofia","Version de Consola","100% libre de gluten", "H4ck th3 W0rld","T I E M P O O ! ! !",
-"Bebesita bebelin","Hello Moto","Boca sho te amo",":(","Obsidian", "No hay chiste","I love E",
-"Don't worry, be happy"," ","D n E","No hay sistema joven","Hola wap@","Una troca salio de durango...",
-"Al toke mi rey","En efecto compañero","Esta va para el que lo lea <3","[Mensaje random]", "RubRub?",
-"Puto el que lo lea","Un saludo para toda la banda","Un saludo para la grasa","Hey sister, nice clitoris",
-"SOFTWARE LIBRE","El original","Con linki park de fondo","Un tal Emilio esta leyendo esto, un saludo ;)",
-"Echale ganas mijo","Ojos color sol","نريد التغيير!","EZNL ★"]
-hora =  Time.now.strftime("%R")
-OSV = $platform.version
-OS = $platform.os
-$mac = Mac.addr
+require Pathname.new(__FILE__).realpath.parent.join("core_funcions.rb")
+require $path_core + "clases.rb"
+require $path_core + "clases_funciones.rb"
 
 #Icono de error
 $err = "::".colorize(:red)
 
-#Checando coneccion a internet y obtener direccion IP
-
-begin
-    $ip = Net::HTTP.get(URI("https://api.ipify.org"))
-rescue Exception => e
-    puts "#{$err}> [1.0]\nPor: #{e.message}\nLas herramientas no se ejecutaran correctamente"
-    $ip = "No Disponible"
-    sleep 4
-end
-
-LOGO = "
-                     ┏━━━━┓━━━━━━━━┏┓━━━━━━┏━━━┓┏━━━┓
-                     ┃┏┓┏┓┃━━━━━━━━┃┃━━━━━━┃┏━┓┃┃┏━┓┃
-                     ┗┛┃┃┗┛┏━━┓┏━━┓┃┃━━━━━━┃┃━┃┃┃┃━┗┛
-                     ━━┃┃━━┃┏┓┃┃┏┓┃┃┃━┏━━━┓┃┗━┛┃┃┃━┏┓
-                     ━┏┛┗┓━┃┗┛┃┃┗┛┃┃┗┓┗━━━┛┃┏━┓┃┃┗━┛┃
-                     ━┗━━┛━┗━━┛┗━━┛┗━┛━━━━━┗┛━┗┛┗━━━┛
-                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"
-msgdon = msgran.sample
-INICIO = " \t \t \t\t\t\t#{msgdon.yellow}
-\n\t\t  Github: https://github.com/Kedap/Tool-AC
-\tTime: #{hora.to_s.colorize(:white)}  Os: #{OS.to_s.colorize(:white)} #{OSV.to_s.colorize(:white)} Ip: #{$ip.colorize(:white)} Mac Addres: #{$mac.to_s.colorize(:white)}"
-MENUS = "
-\n Escoje una seccion del menu
-\n \t1) CC'S
-\t2) Carding
-\t3) CrackTools
-\t4) Acerca de, creditos e informacion del sistema
-\t99) Salir
-"
-LOGOCCS ="
+BANNERCC ="
 \n\t\t\t ░░░░░░  ░░░░░░     ░░░░░░░
 \t\t\t▒▒      ▒▒          ▒▒
 \t\t\t▒▒      ▒▒          ▒▒▒▒▒▒▒
 \t\t\t▓▓      ▓▓               ▓▓
-\t\t\t ██████  ██████     ███████ "
-MENUC= "
+\t\t\t ██████  ██████     ███████ 
 \n Escoje una opcion del menu
 \n \t1) Informacion de un bin
 \t2) Gen CC's apartir de un bin
-\t3) Checker
-\t4) Verificacion de luhn
-\t5) Ejecutar todos en el siguiente orden: 1,2 y 4
+\t3) Verificacion de luhn
+\t4) Ejecutar todos en el siguiente orden: 1,2 y 3
 \t99) Menu principal"
 LOGOCARD = '
         ______                          __ __
@@ -106,8 +53,7 @@ LOGOCARD = '
 MENUCARD="
 \n Escoje una opcion del menu
 \n\t 1) Phising
-\t 2) SPAM a emails
-\t 3) Identidad
+\t 2) Identidad
 \t 99) Menu principal"
 $confirmacionl = $platform.linux?
 LOGOINFO='
@@ -151,22 +97,32 @@ LOGOCREDITOS="
 ██║     ██╔══██╗██╔══╝  ██║  ██║██║   ██║   ██║   ██║╚════██║
 ╚██████╗██║  ██║███████╗██████╔╝██║   ██║   ╚██████╔╝███████║
  ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝   ╚═╝    ╚═════╝ ╚══════╝"
-#Funciones
-def init()
-    puts("#{$limpiar}")
-    puts("#{LOGO} #{INICIO} #{MENUS}")
-    print("\nNumero de seccion: ")
-    op = gets.chomp
-    sepa(op)
-end
+
 
 #Distribuidor de secciones
 def sepa(opc)
     case opc
     when "1"
-        seccs()
+        no_error = false
+        while no_error == false
+            no_error = true
+            limpiar
+            seccion_cc = Cc.new("cc", BANNERCC, 4)
+            numero_seccion = seccion_cc.print_menu().to_i
+            no_error = seccion_cc.funcion(numero_seccion)
+        end
+        main()
     when "2"
-        seccard()
+        no_error = false
+        while no_error == false
+            no_error = true
+            limpiar
+            banner = LOGOCARD + MENUCARD
+            seccion_cc = Carding.new("carding",banner , 2)
+            numero_seccion = seccion_cc.print_menu().to_i
+            no_error = seccion_cc.funcion(numero_seccion)
+        end
+        main()
     when "3"
         seccrack()
     when "4"
@@ -180,9 +136,9 @@ def sepa(opc)
         puts "Ok..."
         exit
     else
-        puts "#{$err} > [2]\nIntenta de nuevo"
-        sleep 3
-        init()
+        error ("Intenta de nuevo")
+        opc = menu_prinicipal
+        sepa(opc)
     end
 end
 
@@ -219,144 +175,13 @@ def seccs()
         seccs()
     end
 end
-def gencc()
-    puts("\n\nIngresa tu bin con el siguiente formato, por defcto la FECHA y CCV son random y cantidad son 5 \nFormato:\nBIN;FECHA;CCV;CANTIDAD-DE-CCS-GENERADAS")
-    print "\ngen> ";gen = gets.chomp
 
-    #separando entrada
-    begin
-       gen = gen.split(";")
-       bin = gen[0]; fecha = gen[1]; cvv = gen[2]; $cantidad = gen[3].to_i
-    rescue Exception => e
-        puts "Algo salio mal con tu entrada, puedes intentarlo de nuevo"
-        sleep 2
-        gencc()
-    end
-    cifras = bin.length;faltan = 16 - cifras;$i = 0
-    puts "[*] Generando CC's...\n\n\t--==[ CC gen de Tool-AC ]==--"
-    puts ""
-
-    #generando todas las cc's
-    while $i <= $cantidad
-        cc = bin
-        t = 0
-        loop do
-            t = t + 1
-            num = rand(9)
-            num = num.to_s
-            cc = cc + num
-            if t == faltan
-                break
-            end
-        end
-        puts "#{cc};#{fecha};#{cvv}"
-        $i = $i + 1
-    end
-    print "\n--ENTER para continuar--"; h = gets
-    if $todo == true
-        luhncc()
-    else
-        seccs()
-    end
-end
-def provi()
-    puts("Ingresa el bin que deseas obtener informacion")
-    print "BIN => "; bin =  gets.chomp
-    puts("\n[*] Obteniendo informacion...")
-    #Comprobando coneccion con la API
-    begin
-        uri = URI.parse("https://lookup.binlist.net/#{bin}")
-        request = Net::HTTP::Get.new(uri)
-        request["Accept-Version"] = "3"
-        
-        req_options = {
-          use_ssl: uri.scheme == "https",
-        }
-        
-        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-          http.request(request)
-        end
-        
-    rescue Exception => e #Interrupt
-        puts"#{$err}> [1.0]\nPor #{e.message}\nNo se pudo establecer conexion con las API de binlist.net"
-        sleep 3
-        seccs()
-    end
-    info = JSON.parse(response.body)
-    bank = info["bank"]
-    pais = info["country"]
-    puts ("
-
-    \t--==[ Informacion del BIN => #{bin} ]==--\n
-    Tipo de empresa: #{info["scheme"]}
-    Tipo: #{info["type"]}
-    Marca: #{info["brand"]}
-    Prepago: #{info["prepaid"]}
-    Pais: #{pais["name"]}  #{pais["alpha2"]} #{pais["currency"]}
-    Banco: #{bank["name"]}  #{bank["url"]} #{bank["city"]} #{bank["phone"]}
-    ")
-    print "\n--ENTER para continuar--";no = gets.chomp
-    if $todo == true
-        gencc()
-    else
-        seccs()
-    end
-end
 def todoc()
     puts("[+] Ejecutando todas las opciones...")
     $todo = true
     provi()
 end
-def luhncc()
-    puts "Verificacion de luhn o de modulo 10, a continuacion coloca la CC que quieres verificar"
-    print "\nCC => ";cc = gets.chomp.chars
-    pares = [0,"1",2,"3",4,"5",6,"7",8,"9",10,"11",12,"13",14,"15"]
-    multil0 = []
-    multil1 = []
-    #multiplicacion
-    cc.each_index do |i|
 
-        if i == pares[i]
-
-          swap = []
-          swap << cc[i].to_i * 2
-          swap[0] = swap[0].to_s
-          swap = swap[0].chars
-
-          multil1 << swap[0].to_i + swap[1].to_i
-        else
-            multil0 << cc[i].to_i
-        end
-    end
-
-    #suma
-
-    sum = [0]
-
-    multil0.each_index do |o|
-        nue = sum[0]
-        sum[0] = multil0[o] + multil1[o] + nue
-    end
-    resultado0 = sum[0].to_s
-    resultado = resultado0.chars
-
-    #Buscando el numero posible
-    puesto = cc.last
-    resultadoN = resultado0.to_i - puesto.to_i
-    falta = resultadoN-100
-    falta = falta.to_s; falta = falta.chars; falta = falta.last
-    #Resultado del check
-    if resultado.last == "0"
-        puts"✅"
-    else
-        puts"❌"
-        puts "Intenta colocar #{falta} como la ultima cifra"
-    end
-
-    print "No viste nada? Intenta instalar y/o configurar unicode\n\n--ENTER para continuar--"
-    h = gets
-    seccs()
-end
 #seccion de carding
 def seccard()
     puts "#{$limpiar}#{LOGOCARD} #{MENUCARD}\n"
@@ -699,8 +524,14 @@ def help()
 
     Pero es recomendable que lo hagas aqui: https://github.com/Kedap/Tool-AC/issues" 
 end
+
+def main
+    opcion = menu_prinicipal()
+    sepa(opcion)
+end
+
 #Inicio de programa
-init()
+main()
 #القصّة جمّرت من شرارة
 #نريد للسّلطة الحاكمة أن تُنفَى
 #من شرارة
