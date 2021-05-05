@@ -12,7 +12,7 @@ begin
 	root = Pathname.new("/usr/share/tool-ac")
 	core = root + "core/" # core = Pathname.new("/ruta/customizada/core/")
 	libs = root + "libs/" # libs = Pathname.new("/ruta/customizada/libs/")
-	puts "[*] Cargando..."
+	puts "#{"[*] Cargando...".cyan()}"
 	bmain = File.exist?(core + "main.rb")
 	if bmain == true
 		require core + 'main.rb'

@@ -5,14 +5,15 @@ carpeta y ejecuta los siguientes comando:
 ```
 bundle install
 ```
-Y para ejecutar
+Y lo siguiente
 ```
-chmod +x main.rb
-sudo ./main.rb
-```
-O si estas ejecutando como root: 
-```
-./main.rb 
+$ cd Tool-AC
+$ cd ConsolaV
+$ chmod +x toac
+# cp toac /usr/bin
+# mkdir -p /usr/share/tool-ac
+# cp -r core /usr/share/tool-ac
+# cp -r libs /usr/share/tool-ac
 ```
 ## Apmpkg
 Se puede instalar mediante la herramienta [apmpkg](https://github.com/kedap/apmpkg) con el siguiente comando
