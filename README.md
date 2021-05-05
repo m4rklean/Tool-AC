@@ -21,9 +21,6 @@ Esta herramienta dependen de las siguientas API's o aplicaciones
 - [faker-ruby](https://github.com/faker-ruby/faker#generators)
 
 ## Aplicaciones
-- [blackeye](https://github.com/An0nUD4Y/blackeye)
-- [EmailGen](https://github.com/navisecdelta/EmailGen)
-- [Bundler](https://bundler.io/)
 - [Generador de combos](https://github.com/Juni0r007/PasTerm)
 - [Rubygems](https://rubygems.org/)
 
@@ -35,6 +32,3 @@ Si quieres ser colaborador o desea ser probador de beta mande un mensaje a [Tele
 Recuerde que para esta version se puede ejecutar en cualquier sistema operativo sin embargo no todas las funciones se ejecutan correctamente, solo en distribuciones de linux. Mas informacion [aqui](/Docs/Instaladores.md)
 # Contacto 
 - [Chat Telegram](https://t.me/Kedap_Develop)
-
-#TeamMovistar
-#TeamObsidian
