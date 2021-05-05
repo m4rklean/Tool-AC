@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# Esto es un binario
+#
+# Esto de preferencia debe estar en la carpeta /opt junto a las demas carpetas
+# si esta en la ruta en donde se recomienda entonces modifica esto
+#
+
+require 'pathname'
+require 'colorize'
+
+begin
+	root = Pathname.new("/usr/share/tool-ac")
+	core = root + "core/" # core = Pathname.new("/ruta/customizada/core/")
+	libs = root + "libs/" # libs = Pathname.new("/ruta/customizada/libs/")
+	puts "#{"[*] Cargando...".cyan()}"
+	bmain = File.exist?(core + "main.rb")
+	if bmain == true
+		require core + 'main.rb'
+	else
+		puts "Ocurrio un error al leer el archivo main.rb en la ruta #{core}"
+		exit(1)
+	end
+rescue Interrupt
+	puts "\n#{"[-] Abortando...".red()}"
+	exit(1)
+end
