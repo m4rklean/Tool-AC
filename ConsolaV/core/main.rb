@@ -9,14 +9,6 @@
 
 #dependencias 
 require 'pathname'
-require 'colorize'
-require 'tty-platform'
-require 'macaddr'
-require 'faker'
-require 'pathname'
-require 'net/http'
-require 'uri'
-require 'json'
 require Pathname.new(__FILE__).realpath.parent.join("core_funcions.rb")
 require $path_core + "clases.rb"
 require $path_core + "clases_funciones.rb"
@@ -80,8 +72,7 @@ _________                       __   ___________              __
 MENUCRACK="
 \n Escoje una opcion
 \n\t 1) Generar lista de proxys
-\t 2) Decifrador de HASH
-\t 3) Generador de combos
+\t 2) Generador de combos
 \t 99) Menu principal"
 ACERCAD='
 
@@ -124,11 +115,27 @@ def sepa(opc)
         end
         main()
     when "3"
-        seccrack()
+        no_error = false
+        while no_error == false
+            no_error = true
+            limpiar()
+            banner = LOGOCRACK + MENUCRACK
+            seccion_crack = Cracktool.new("cracktool", banner, 2)
+            numero_seccion = seccion_crack.print_menu().to_i
+            no_error = seccion_crack.funcion(numero_seccion)
+        end
+        main()
     when "4"
-        seccinfo()
-	    h = gets.chomp
-        init()
+        no_error = false
+        while no_error == false
+            no_error = true
+            limpiar()
+            banner = LOGOINFO + MENUINFO
+            seccion_info = Informacion.new("informacion", banner, 4)
+            numero_seccion = seccion_info.print_menu().to_i
+            no_error = seccion_info.funcion(numero_seccion)
+        end
+        main()
     when "99"
         puts("\nSPAM "* 50)
         exit
@@ -206,167 +213,7 @@ def seccard()
     end
 end
 
-def phishing()
-    puts"Puedes conocer las acciones que realizar el script en:\nlocalhost:4040 o 127.0.0.1:4040"
-    print "\n-- ENTER para continuar --"
-    h = gets
-    puts"#{$limpiar}"
-    puts "\t\t\tBLACKEYE v1.5 BY: An0nUD4Y"
-    puts"\n"
-    begin
-      system("bash commands.sh 0")
-    rescue Exception => e
-      puts "#{$err}> [3.0]\nPor: #{e.message}\nAl parecer hubo un error fuera de `main.rb`"
-      sleep 3
-      seccard()
-    end
-end
-
-def spama()
-    #Necesario python 2
-    puts "Necesitas crear el correo (Contenido) en un .txt o .html es recomendable que tengas una cuenta de www.smtp2go.com ya que la cuenta por defecto es posbile que no funciones
-    --Una vez que tengas esto presiona ENTER para continuar--"
-    h = gets
-    system("bash commands.sh 1")
-end
-
-def idp()
-    puts "[*] Generando datos..."
-    puts"#{$limpiar}
-    \t\t--==[ Datos ]==--
-
-    \tNombre: #{Faker::Name.name}
-    \tDireccion: #{Faker::Address.full_address}
-    \tGenero: #{Faker::Gender.binary_type}
-    \tNacimiento : #{Faker::Date.birthday(min_age: 18, max_age: 65)}
-    \tTelefono: #{Faker::PhoneNumber.cell_phone}
-
-    \t\t--==[ Internet ]==--
-
-    \tCorreo: #{Faker::Internet.email}
-    \tUsername: #{Faker::Internet.username}
-    \tPassword: #{Faker::Internet.password}
-    \tIP: #{Faker::Internet.ip_v4_address}
-    \tDireccion MAC: #{Faker::Internet.mac_address}
-    \tUser agent: #{Faker::Internet.user_agent}
-
-    \t\t--==[ Educacion ]==--
-
-    \tGrado de estudios: #{Faker::Job.education_level}
-    \tUniversidad: #{Faker::Educator.university}
-    \tCampus: #{Faker::Educator.campus}
-    \tEstudia: #{Faker::Educator.subject}
-
-    \t\t--==[ Trabajo ]==--
-
-    \tTrabaja en: #{Faker::Company.name}
-    \tPuesto: #{Faker::Job.position}
-    \tSIC de la compania: #{Faker::Company.sic_code}
-
-    \t\t--==[ Vehiculo ]==--
-
-    \tMarca y modelo: #{Faker::Vehicle.make_and_model}
-    \tColor: #{Faker::Vehicle.color}
-    \tAño: #{Faker::Vehicle.year}
-    \tLicense plate: #{Faker::Vehicle.license_plate }
-
-    --ENTER para continuar--"
-    h = gets
-    seccard()
-end
-#Separador del cracktools
-def seccrack()
-    puts "#{$limpiar} #{LOGOCRACK} #{MENUCRACK}"
-    print "\nEscribe tu opcion: "
-    opc = gets.chomp
-    case (opc)
-    when "1" 
-        proxy()
-    when "2"
-        hash5() #no dejar como hash() puede causar errores
-    when "3"
-        combos()
-    when "99"
-        init()
-    when "exit"
-        puts "Ok..."
-        exit
-    else
-        puts "#{$err} > [2]\nIntenta de nuevo"
-        sleep 3
-        seccard()
-    end
-end
 #Lista de proxys
-def proxy()
-    puts"\nQue tipo de proxy quieres? [http/Socks4]"
-    print "TIPO =>";tipo = gets.chomp
-    puts"Ingresa el codigo del pais que deseas la lista. Por ejemplo US"
-    print "PAIS => ";codigo = gets.chomp
-    puts "[*] Generando lista..."
-
-    #Generando:
-
-    uri = URI.parse("https://api.proxyscrape.com?request=getproxies&proxytype=#{tipo}&timeout=10000&country=#{codigo}&anonymity=anonymous&ssl=yes")
-    response = Net::HTTP.get_response(uri)
-    lista = response.body
-
-    puts"Lista de proxys
-    #{lista}"
-    print"\n-- ENTER para continuar --"
-    h = gets
-    seccrack()
-end
-def hash5()
-    puts "Puede que la api que se utiliza por defecto ya sea baneada, crea tu KEY personal en hashes.org con una cuenta"
-    puts "\nElije una opcion:\n1) Utilizar tu KEY personal (recomendada)\n2) Utilizar la KEY por defecto (para nada recomendable)"
-    print "\nTu opcion: ";opc = gets.chomp
-    case(opc)
-        when "1"
-            puts"Coloca tu KEY personal"
-            print "KEY => "; key = gets.chomp # password de too-ac en hashes Kpq4t7vOQRyJcsl3HU0F
-        when "2"
-            print"Si esta no funciona que es lo mas probable prueba con la otra opcion"
-            key = "eqbX63JYIH0KiyyH0rNE3QFG8Bozyf"
-        else
-            puts "#{$err} > [2]\nIntenta de nuevo"
-            sleep 3
-            hash5()
-    end
-    puts "\n[+] KEY => #{key}..."
-    puts "Coloca el hash que quieres crackear"
-    print"\nHASH => "; has = gets.chomp
-    puts "[*] Obteniendo informacion..."
-
-    # Comprobando conexion con hashes.org
-    begin
-        uri = URI.parse("https://hashes.org/api.php?key=#{key}&query=#{has}")
-        response = Net::HTTP.get_response(uri)
-    rescue Exception => e
-        puts "#{$err}> [1.0]\nPor: #{e.message}"
-        sleep 2
-        hash5()
-    end
-    output = JSON.parse(response.body)
-
-    #Checando si se encontro
-    status = output["status"]
-    correcto = "Encontado".colorize(:green)
-    resultado = output["result"]
-    resultado = resultado[has]
-    begin
-        puts"\n\n\t--==[ Resultados de HASH => #{has} ]==--
-    \n\tHash encontrado/crackeado: #{correcto}
-        Texto plano: #{resultado["plain"]}
-        Texto hexadecimal: #{resultado["hexplain"]}
-        Tipo de hash/algoritmo: #{resultado["algorithm"]}"
-    rescue Exception => e
-        correcto = "No encontrado".colorize(:red)
-        puts "Estado del hash: #{correcto}"
-    end
-    print"\n-- ENTER para continuar --";h = gets
-    seccrack()
-end
 def combos()
     puts"Es necesario utilizar VPN para ejecutar este programa, enter cuando estes listo"
     h = gets

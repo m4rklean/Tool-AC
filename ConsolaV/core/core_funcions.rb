@@ -6,9 +6,11 @@ require 'colorize'
 require 'tty-platform'
 require 'net/http'
 require 'uri'
+require 'macaddr'
 
 # Variables globales
 $path_core = Pathname.new(__FILE__).realpath.parent
+$path_lib = Pathname.new(__FILE__).realpath.parent.parent.join("libs")
 $version = "1.2.0"
 $platform = TTY::Platform.new
 $hora =  Time.now.strftime("%R")
