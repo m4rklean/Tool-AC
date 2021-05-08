@@ -18,5 +18,5 @@ $ chmod +x toac
 ## Apmpkg
 Se puede instalar mediante la herramienta [apmpkg](https://github.com/kedap/apmpkg) con el siguiente comando:
 ```
-# apmpkg instalar -u https://github.com/m4rklean/Tool-AC/releases/download/1.2.0/tool-ac-1.2-m4rk.abi.tar.gz
+# apmpkg instalar -u https://github.com/m4rklean/Tool-AC/releases/download/1.2/tool-ac-1.2-m4rk.abi.tar.gz
 ```
